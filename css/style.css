@@ -2399,36 +2399,77 @@ input, select, textarea {
 /* ==========================================================================
    Responsive Breakpoints
    ========================================================================== */
+
+/* ── Large Tablet / Small Desktop (≤ 1200px) ── */
 @media (max-width: 1200px) {
   .books-grid {
     grid-template-columns: repeat(3, 1fr);
   }
+
+  .footer-top-grid {
+    grid-template-columns: 1.5fr 1fr 1fr;
+    gap: 2.5rem;
+  }
 }
 
-@media (max-width: 1180px) {
+/* ── Nav compression (≤ 1100px) ── */
+@media (max-width: 1100px) {
   .nav-links {
     gap: 1rem;
   }
   .nav-link {
     font-size: 0.86rem;
   }
-  .header-right-group {
-    gap: 1.25rem;
+  /* Hide keyboard shortcut label, keep search icon */
+  .search-trigger-btn span:last-child,
+  .kbd-shortcut {
+    display: none;
   }
-  .search-trigger-btn span, .kbd-shortcut {
+  /* Shrink "Explore Catalogue" CTA on the header */
+  .header-actions .btn-primary.btn-sm {
     display: none;
   }
 }
 
+/* ── Tablet Portrait (≤ 992px) ── */
 @media (max-width: 992px) {
+  :root {
+    --header-height: 64px;
+  }
+
+  /* ─ Header ─ */
   .site-header {
-    height: 70px;
+    height: var(--header-height);
   }
   .desktop-nav {
     display: none;
   }
   .mobile-menu-toggle {
-    display: block;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  /* Hide "Explore Catalogue" header button on tablet too */
+  .header-actions .btn-primary.btn-sm {
+    display: none;
+  }
+  /* Tighten header actions */
+  .header-actions {
+    gap: 0.5rem;
+  }
+  .search-trigger-btn {
+    padding: 0.5rem 0.75rem;
+  }
+  .search-trigger-btn span {
+    display: none;
+  }
+  .kbd-shortcut {
+    display: none;
+  }
+
+  /* ─ Hero ─ */
+  .hero-section {
+    padding: 3.5rem 0 3rem;
   }
   .hero-grid {
     grid-template-columns: 1fr;
@@ -2439,61 +2480,441 @@ input, select, textarea {
     text-align: center;
   }
   .hero-title {
-    font-size: 3rem;
+    font-size: 2.8rem;
+  }
+  .hero-description {
+    font-size: 1.05rem;
   }
   .hero-cta-group {
     justify-content: center;
   }
   .hero-stats-strip {
     justify-content: center;
+    flex-wrap: wrap;
+    gap: 1.5rem;
   }
-  .categories-grid, .spotlight-grid, .collections-grid {
+  /* Keep visual but make it smaller */
+  .hero-visual {
+    min-height: 360px;
+  }
+  .hero-book-showcase {
+    max-width: 380px;
+    height: 360px;
+    margin: 0 auto;
+  }
+  .floating-card.card-primary {
+    width: 200px;
+    height: 265px;
+  }
+  .floating-card.card-left {
+    width: 170px;
+    height: 225px;
+  }
+  .floating-card.card-right {
+    width: 180px;
+    height: 235px;
+  }
+  .floating-card.card-back {
+    width: 230px;
+    height: 165px;
+  }
+
+  /* ─ Section Titles ─ */
+  .section-title {
+    font-size: 2rem;
+  }
+
+  /* ─ Category / Spotlight / Collections grids ─ */
+  .categories-grid,
+  .spotlight-grid,
+  .collections-grid {
     grid-template-columns: repeat(2, 1fr);
   }
+
+  /* ─ Books Grid ─ */
+  .books-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+  }
+
+  /* ─ About Section ─ */
   .about-grid {
     grid-template-columns: 1fr;
     gap: 3rem;
   }
+  .about-title {
+    font-size: 2.2rem;
+  }
+
+  /* ─ Footer ─ */
   .footer-top-grid {
     grid-template-columns: repeat(2, 1fr);
     gap: 2.5rem;
   }
+
+  /* ─ Modal ─ */
   .preview-modal-grid {
     grid-template-columns: 1fr;
     padding: 2rem;
   }
+  .modal-cover-stage {
+    min-height: 280px;
+  }
+  .modal-book-title {
+    font-size: 1.75rem;
+  }
 }
 
+/* ── Tablet Landscape / Large Phone (≤ 768px) ── */
 @media (max-width: 768px) {
-  .hero-title {
-    font-size: 2.4rem;
+  /* ─ Container padding ─ */
+  .container {
+    padding-left: 1.25rem;
+    padding-right: 1.25rem;
   }
+
+  /* ─ Hero ─ */
+  .hero-section {
+    padding: 2.5rem 0 2.5rem;
+  }
+  .hero-title {
+    font-size: 2.2rem;
+  }
+  .hero-description {
+    font-size: 0.98rem;
+  }
+  /* Hide the multi-book visual on smaller screens to avoid overflow */
+  .hero-visual {
+    display: none;
+  }
+  .hero-stats-strip {
+    gap: 1.5rem;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .stat-number {
+    font-size: 1.5rem;
+  }
+
+  /* ─ Section Headers ─ */
+  .section-title {
+    font-size: 1.75rem;
+  }
+  .section-subtitle {
+    font-size: 0.95rem;
+  }
+  .section-header {
+    margin-bottom: 2rem;
+  }
+
+  /* ─ Catalogue controls ─ */
+  .search-and-filter-bar {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.75rem;
+  }
+  .search-input-box {
+    min-width: 0;
+    width: 100%;
+  }
+  .filter-dropdowns-group {
+    flex-wrap: wrap;
+    gap: 0.65rem;
+  }
+  .custom-select {
+    flex: 1;
+    min-width: 130px;
+  }
+
+  /* ─ Books grid ─ */
   .books-grid {
     grid-template-columns: repeat(2, 1fr);
-    gap: 1.25rem;
+    gap: 1rem;
   }
-  .categories-grid, .spotlight-grid, .collections-grid {
+  /* Disable list view on mobile (force grid) */
+  .books-grid.list-view {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+  .books-grid.list-view .book-card {
+    flex-direction: column;
+    padding: 1rem;
+  }
+  .books-grid.list-view .book-cover-container {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 3 / 4;
+    margin-bottom: 1rem;
+  }
+
+  /* ─ Categories / Spotlight / Collections ─ */
+  .categories-grid,
+  .spotlight-grid,
+  .collections-grid {
     grid-template-columns: 1fr;
   }
+  .category-card {
+    min-height: 200px;
+  }
+
+  /* ─ About ─ */
+  .about-section {
+    padding: 4rem 0;
+  }
+  .about-title {
+    font-size: 1.9rem;
+  }
+  .about-pillars-grid {
+    grid-template-columns: 1fr;
+  }
+  .about-visual-box {
+    padding: 2rem;
+  }
+
+  /* ─ Closing CTA ─ */
+  .closing-cta-title {
+    font-size: 2rem;
+  }
+  .closing-cta-text {
+    font-size: 1rem;
+  }
+
+  /* ─ Footer ─ */
   .footer-top-grid {
     grid-template-columns: 1fr;
+    gap: 2rem;
   }
   .footer-bottom-bar {
     flex-direction: column;
     gap: 1rem;
     text-align: center;
   }
-}
+  .site-footer {
+    padding: 3.5rem 0 2rem;
+  }
 
-@media (max-width: 480px) {
-  .books-grid {
+  /* ─ Modal ─ */
+  .modal-backdrop {
+    padding: 1rem;
+  }
+  .preview-modal-dialog {
+    border-radius: var(--radius-lg);
+    max-height: 95vh;
+  }
+  .preview-modal-grid {
+    padding: 1.5rem;
+    gap: 1.5rem;
+  }
+  .modal-book-title {
+    font-size: 1.5rem;
+  }
+  .modal-meta-table {
     grid-template-columns: 1fr;
   }
-  .hero-title {
-    font-size: 2rem;
+
+  /* ─ Inquiry modal ─ */
+  .inquiry-modal-dialog {
+    padding: 1.5rem;
   }
-  .hero-stats-strip {
-    flex-direction: column;
-    gap: 1rem;
+
+  /* ─ Spotlight Search modal ─ */
+  .spotlight-modal-dialog {
+    max-width: 100%;
+    border-radius: var(--radius-lg);
   }
 }
+
+/* ── Large Phone (≤ 576px) ── */
+@media (max-width: 576px) {
+  :root {
+    --header-height: 60px;
+  }
+
+  .container {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  /* ─ Header ─ */
+  .brand-logo-img {
+    height: 36px;
+  }
+  /* Hide saved-books icon on very small screens to save space */
+  .btn-icon.saved-btn {
+    display: none;
+  }
+
+  /* ─ Hero ─ */
+  .hero-section {
+    padding: 2rem 0 2rem;
+  }
+  .hero-title {
+    font-size: 1.9rem;
+    letter-spacing: -0.025em;
+  }
+  .hero-pill-badge {
+    font-size: 0.75rem;
+  }
+  .hero-description {
+    font-size: 0.92rem;
+  }
+  .hero-cta-group {
+    flex-direction: column;
+    gap: 0.75rem;
+    align-items: stretch;
+  }
+  .hero-cta-group .btn {
+    width: 100%;
+    justify-content: center;
+  }
+  .hero-stats-strip {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    padding-top: 1.5rem;
+  }
+
+  /* ─ Section titles ─ */
+  .section-title {
+    font-size: 1.55rem;
+  }
+  .section-header {
+    margin-bottom: 1.5rem;
+  }
+
+  /* ─ Books grid → 1 column ─ */
+  .books-grid,
+  .books-grid.list-view {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  .books-grid.list-view .book-card {
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 1rem;
+    padding: 1rem;
+  }
+  .books-grid.list-view .book-cover-container {
+    width: 100px;
+    height: 130px;
+    aspect-ratio: auto;
+    flex-shrink: 0;
+    margin-bottom: 0;
+  }
+
+  /* ─ Catalogue controls ─ */
+  .custom-select {
+    width: 100%;
+    flex: none;
+  }
+  .filter-dropdowns-group {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .view-toggle-group {
+    align-self: flex-start;
+  }
+
+  /* ─ Collections / Category cards ─ */
+  .collection-banner-card {
+    min-height: 220px;
+    padding: 1.5rem;
+  }
+  .category-card {
+    padding: 1.5rem;
+  }
+
+  /* ─ About ─ */
+  .about-title {
+    font-size: 1.65rem;
+  }
+  .about-visual-box {
+    padding: 1.5rem;
+  }
+  .publisher-badge-card {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.85rem;
+  }
+  .pub-logo-large {
+    width: 60px;
+  }
+
+  /* ─ Closing CTA ─ */
+  .closing-cta-section {
+    padding: 3.5rem 0;
+  }
+  .closing-cta-title {
+    font-size: 1.65rem;
+  }
+  .closing-btn-group {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .closing-btn-group .btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  /* ─ Modal full-screen on phones ─ */
+  .modal-backdrop {
+    padding: 0;
+    align-items: flex-end;
+  }
+  .preview-modal-dialog {
+    border-radius: var(--radius-xl) var(--radius-xl) 0 0;
+    max-height: 92vh;
+    max-width: 100%;
+  }
+  .preview-modal-grid {
+    padding: 1.25rem;
+    gap: 1.25rem;
+  }
+  .modal-close-btn {
+    top: 1rem;
+    right: 1rem;
+  }
+  .modal-book-title {
+    font-size: 1.35rem;
+  }
+
+  /* ─ Toast ─ */
+  .toast-container {
+    bottom: 1rem;
+    right: 1rem;
+    left: 1rem;
+  }
+}
+
+/* ── Small Phone (≤ 400px) ── */
+@media (max-width: 400px) {
+  .hero-title {
+    font-size: 1.65rem;
+  }
+  .hero-stats-strip {
+    grid-template-columns: 1fr 1fr;
+  }
+  .books-grid {
+    gap: 0.75rem;
+  }
+  .book-card {
+    padding: 0.85rem;
+  }
+  .section-title {
+    font-size: 1.4rem;
+  }
+  .about-title {
+    font-size: 1.4rem;
+  }
+  .closing-cta-title {
+    font-size: 1.5rem;
+  }
+  /* Make inquiry / spotlight modal full screen */
+  .inquiry-modal-dialog,
+  .spotlight-modal-dialog {
+    max-width: 100%;
+    border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+    margin: 0;
+  }
+}
+
