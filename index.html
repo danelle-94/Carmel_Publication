@@ -4,15 +4,15 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Carmel Publications | Children's Books for Nursery to Grade 3</title>
+  <title>Carmel Publications | Children's Books for Nursery to Grade 8</title>
   <meta name="description"
-    content="Browse the Carmel Publications catalogue: alphabet and picture-dictionary books, Hindi primers, cursive writing, numbers, bilingual rhymes and art & craft workbooks for Nursery to Grade 3.">
+    content="Browse the Carmel Publications catalogue: alphabet and picture-dictionary books, Hindi primers, cursive writing, numbers, bilingual rhymes and art & craft workbooks for Nursery to Grade 8.">
   <meta name="keywords"
     content="Carmel Publications, children's books, early learning, Alphabet Galaxy, cursive writing, Hindi Swar Mala, rhymes and balgeet, art and craft, Jalandhar, Ernakulam">
   <meta name="theme-color" content="#3155E7">
   <meta property="og:title" content="Carmel Publications - Children's Book Catalogue">
   <meta property="og:description"
-    content="25 full-colour books for Nursery to Grade 3. Find the right books for your child, class or school.">
+    content="25 full-colour books for Nursery to Grade 8. Find the right books for your child, class or school.">
   <meta property="og:image" content="assets/img/logo.png">
   <meta property="og:type" content="website">
   <meta name="twitter:card" content="summary">
@@ -24,7 +24,7 @@
     rel="stylesheet">
 
   <link rel="stylesheet" href="css/style.css">
-  <link rel="icon" type="image/png" href="assets/img/logo.png">
+  <link rel="icon" type="image/png" href="assets/img/favicon.png">
   <script>document.documentElement.classList.add('js');</script>
 </head>
 
@@ -36,7 +36,7 @@
   <header class="site-header" id="siteHeader">
     <div class="container header-inner">
       <a href="#home" class="brand-logo-link" aria-label="Carmel Publications - Home">
-        <img src="assets/img/logo.png" alt="Carmel Publications" class="brand-logo-img" width="117" height="52">
+        <img src="assets/img/logo.png" alt="Carmel Publications" class="brand-logo-img" width="158" height="68">
       </a>
 
       <nav class="desktop-nav" aria-label="Main">
@@ -90,7 +90,7 @@
   <div class="mobile-nav-backdrop" id="mobileNavDrawer" aria-hidden="true">
     <nav class="mobile-nav-panel" aria-label="Mobile">
       <div class="mobile-nav-head">
-        <img src="assets/img/logo.png" alt="Carmel Publications" class="brand-logo-img" width="105" height="47">
+        <img src="assets/img/logo.png" alt="Carmel Publications" class="brand-logo-img" width="130" height="56">
         <button class="btn-icon" id="mobileNavClose" type="button" aria-label="Close menu">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
             stroke-linecap="round" aria-hidden="true">
@@ -120,7 +120,7 @@
         <div class="hero-content">
           <div class="hero-pill-badge">
             <span class="dot"></span>
-            <span>2026-27 catalogue &middot; Nursery to Grade 3</span>
+            <span>2026-27 catalogue &middot; Nursery to Grade 8</span>
           </div>
 
           <h1 class="hero-title">
@@ -141,7 +141,7 @@
                 <polyline points="12 5 19 12 12 19"></polyline>
               </svg>
             </a>
-            <a href="#catalogue" class="btn btn-outline"><span>Browse all 25 books</span></a>
+            <a href="#catalogue" class="btn btn-outline"><span id="browseAllLabel">Browse all 25 books</span></a>
           </div>
 
           <dl class="hero-stats-strip">
@@ -155,7 +155,7 @@
             </div>
             <div class="stat-item">
               <dt class="stat-label">Grade range</dt>
-              <dd class="stat-number">Nursery&ndash;3</dd>
+              <dd class="stat-number" id="statGrades">Nursery&ndash;8</dd>
             </div>
             <div class="stat-item">
               <dt class="stat-label">English &amp; Hindi</dt>
@@ -233,7 +233,7 @@
         <div class="section-header text-center reveal">
           <span class="badge badge-primary section-badge">Subjects</span>
           <h2 class="section-title">Explore by category</h2>
-          <p class="section-subtitle">Six graded series covering language, numbers, handwriting, Hindi, rhymes and
+          <p class="section-subtitle">Graded series covering language, numbers, handwriting, Hindi, rhymes and
             hands-on creativity.</p>
         </div>
         <div class="categories-grid" id="categoriesGrid"></div>
@@ -362,11 +362,28 @@
         <div class="about-content-left reveal">
           <span class="badge badge-primary">About the publisher</span>
           <h2 class="about-title">Books that shape young imaginations.</h2>
-          <p class="about-lead">Carmel Publications creates visually rich, carefully graded books for young learners
-            &mdash; from a child's first alphabet to cursive writing and creative workshops.</p>
-          <p class="about-body">Every title is designed from the child's point of view: bright full-colour
-            illustration, simple language, and a clear progression from Nursery to Grade 3. Our books are written to
-            support the NEP and NCF framework and are available in English and Hindi.</p>
+          <p class="about-lead">Carmel Publications was established in 2020 with the goal of providing high-quality,
+            beautifully illustrated books to children in pre-primary and primary classes across the country.</p>
+          <p class="about-body">We are a team of educators, writers and designers dedicated to creating the best
+            learning materials for young students, parents and teachers. We believe that every child has the potential
+            to learn and grow, and it is our mission to provide the educational tools and resources necessary to help
+            them succeed.</p>
+          <p class="about-body">We specialise in carefully graded books for Nursery to Grade 8 &mdash; early
+            childhood and alphabet, mathematics and numbers, handwriting and penmanship, Hindi language, rhymes and
+            poetry, and art, craft and creativity. Our books are written to support the NEP and NCF framework and are
+            available in English and Hindi. Our team keeps up with the latest teaching approaches and educational
+            trends, so that our materials stay relevant and effective for today's learners.</p>
+          <p class="about-body">Carmel Publications was founded on the principles of accessibility, inclusiveness and
+            innovation. We are constantly exploring new technologies and approaches to education, and we are always
+            looking for ways to improve and evolve our books. We are grateful for the opportunity to serve in the field
+            of education and to make a positive impact on the lives of children.</p>
+
+          <div class="about-aim">
+            <span class="about-aim-label">Our aim</span>
+            <p>To make learning joyful, accessible and inclusive for every young child &mdash; by publishing
+              high-quality, innovative books that inspire curiosity, build strong foundations and help students achieve
+              their full potential.</p>
+          </div>
 
           <div class="about-pillars-grid">
             <div class="pillar-item">
@@ -394,6 +411,8 @@
             </div>
           </div>
 
+          <p class="about-signoff"><strong>With regards,</strong><br>Carmel Publications, Jalandhar, Punjab</p>
+
           <button class="btn btn-primary" type="button" data-open-inquiry>
             <span>Request specimen copies</span>
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
@@ -406,13 +425,17 @@
 
         <div class="about-visual-box reveal">
           <div class="publisher-badge-card">
-            <img src="assets/img/logo.png" alt="Carmel Publications" class="pub-logo-large" width="130" height="58">
+            <img src="assets/img/logo.png" alt="Carmel Publications" class="pub-logo-large" width="150" height="65">
             <div>
               <h3 class="pub-name-headline">Carmel Publications</h3>
               <p class="pub-address-text">Inspiring curiosity, one page at a time</p>
             </div>
           </div>
           <dl class="pub-meta-list">
+            <div class="pub-meta-row">
+              <dt class="pub-meta-label">Established</dt>
+              <dd class="pub-meta-val">2020</dd>
+            </div>
             <div class="pub-meta-row">
               <dt class="pub-meta-label">Publishes</dt>
               <dd class="pub-meta-val">Pre-primary &amp; primary books</dd>
@@ -429,7 +452,28 @@
               <dt class="pub-meta-label">Branch office</dt>
               <dd class="pub-meta-val">Mulanthuruthy, Kerala</dd>
             </div>
+            <div class="pub-meta-row">
+              <dt class="pub-meta-label">Udyam Reg. No.</dt>
+              <dd class="pub-meta-val pub-reg-no">UDYAM-PB-10-0104540</dd>
+            </div>
           </dl>
+        </div>
+      </div>
+    </section>
+
+    <!-- Devotion -->
+    <section class="devotion-section" aria-labelledby="devotionTitle">
+      <div class="container devotion-grid">
+        <figure class="devotion-frame reveal">
+          <img src="assets/img/our-lady-of-mount-carmel.jpg" alt="Our Lady of Mount Carmel with the Child Jesus, surrounded by roses and lilies"
+            width="800" height="1077" loading="lazy">
+        </figure>
+        <div class="devotion-text reveal">
+          <span class="badge badge-primary">Our inspiration</span>
+          <h2 class="section-title" id="devotionTitle">Pray for us, Our Lady of Mount Carmel</h2>
+          <p class="devotion-quote">Guided by faith, devoted to young learners.</p>
+          <p>Carmel Publications offers its work in faith and gratitude &mdash; with the hope that every book
+            brings light, learning and joy into a child's world.</p>
         </div>
       </div>
     </section>
@@ -456,9 +500,17 @@
       <div class="footer-top-grid">
         <div class="footer-brand-col">
           <span class="footer-logo-card"><img src="assets/img/logo.png" alt="Carmel Publications"
-              class="brand-logo-img" width="126" height="56"></span>
+              class="brand-logo-img" width="150" height="65"></span>
           <p class="footer-brand-desc">Vibrant, engaging books that build early literacy, creativity and number sense
             in young minds.</p>
+          <p class="footer-reg">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+              stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+              <polyline points="9 12 11 14 15 10"></polyline>
+            </svg>
+            <span>Udyam Registered<small>UDYAM-PB-10-0104540</small></span>
+          </p>
         </div>
 
         <div>

@@ -7,7 +7,7 @@
 
   const DATA = window.CATALOG_DATA || { books: [], categories: [], collections: [], publisher: {} };
   const BOOKS = DATA.books;
-  const GRADES = ['Nursery', 'LKG', 'UKG', 'Grade 1', 'Grade 2', 'Grade 3'];
+  const GRADE_ORDER = ['Nursery', 'LKG', 'UKG'].concat(Array.from({ length: 12 }, (_, i) => `Grade ${i + 1}`));
   const PRE_PRIMARY = ['Nursery', 'LKG', 'UKG'];
   const FEATURED_IDS = ['alphabet-galaxy', 'rhymes-balgeet-a', 'art-craft-1'];
   const STORAGE_KEY = 'carmel_saved_books';
@@ -45,17 +45,27 @@
   const bookById = (id) => BOOKS.find((b) => b.id === id);
   const catById = (id) => DATA.categories.find((c) => c.id === id);
   const collById = (id) => DATA.collections.find((c) => c.id === id);
-  const catColor = (id) => CAT_COLORS[id] || '#3155E7';
+  const catColor = (id) => (catById(id) || {}).accent || CAT_COLORS[id] || '#3155E7';
 
-  const levelTokens = (b) => b.level.split('/').map((t) => t.trim());
+  // A level such as "Nursery / LKG", "Grade 5" or "Grade 6-8" expands to its individual grades.
+  const levelTokens = (b) => b.level.split('/').flatMap((part) => {
+    const t = part.trim();
+    const range = t.match(/^Grade\s*(\d+)\s*(?:-|\u2013|to)\s*(?:Grade\s*)?(\d+)$/i);
+    if (!range) return [t];
+    const from = parseInt(range[1], 10);
+    const to = parseInt(range[2], 10);
+    return Array.from({ length: Math.max(0, to - from + 1) }, (_, i) => `Grade ${from + i}`);
+  });
   const matchesGrade = (b, grade) => {
     const t = levelTokens(b);
     return t.includes(grade) || (t.includes('Pre-Primary') && PRE_PRIMARY.includes(grade));
   };
   const gradeRank = (b) => {
-    const ranks = levelTokens(b).map((t) => (t === 'Pre-Primary' ? 0 : GRADES.indexOf(t))).filter((i) => i >= 0);
+    const ranks = levelTokens(b).map((t) => (t === 'Pre-Primary' ? 0 : GRADE_ORDER.indexOf(t))).filter((i) => i >= 0);
     return ranks.length ? Math.min(...ranks) : 99;
   };
+  // Only grades that actually have books are offered in the finder and filters.
+  const GRADES = GRADE_ORDER.filter((g) => BOOKS.some((b) => matchesGrade(b, g)));
 
   const haystacks = new Map(BOOKS.map((b) => [b.id, [
     b.title, b.subtitle, b.category, b.collection, b.level, b.age_group, b.isbn,
@@ -269,9 +279,17 @@
   /* ------------------------------------------------------------------
      Static section renderers (from catalogue data)
      ------------------------------------------------------------------ */
+  function gradeRangeLabel() {
+    if (!GRADES.length) return '-';
+    const last = GRADES[GRADES.length - 1];
+    return `${GRADES[0]}\u2013${last.replace('Grade ', '')}`;
+  }
+
   function renderStats() {
     $('#statBooks').textContent = BOOKS.length;
     $('#statCategories').textContent = DATA.categories.length;
+    $('#browseAllLabel').textContent = `Browse all ${BOOKS.length} books`;
+    $('#statGrades').textContent = gradeRangeLabel();
     $('#aboutTitleCount').textContent = plural(BOOKS.length, 'book', 'books');
     $('#footerYear').textContent = new Date().getFullYear();
   }
@@ -356,6 +374,7 @@
      Book Finder
      ------------------------------------------------------------------ */
   function renderFinderControls() {
+    $('#gradePath').style.setProperty('--grades', GRADES.length);
     $('#gradePath').innerHTML = GRADES.map((g) => {
       const n = BOOKS.filter((b) => matchesGrade(b, g)).length;
       return `<button type="button" class="grade-node" role="radio" aria-checked="false" data-grade="${esc(g)}">
@@ -367,7 +386,7 @@
 
     $('#focusChips').innerHTML = DATA.categories.map((c) =>
       `<button type="button" class="focus-chip" aria-pressed="false" data-focus="${esc(c.id)}" style="--cat:${catColor(c.id)}">
-        ${svg(ICONS[c.id] || '', 16)}<span>${esc(c.name)}</span></button>`).join('');
+        ${svg(ICONS[c.id] || ICONS['hindi-literature'], 16)}<span>${esc(c.name)}</span></button>`).join('');
   }
 
   function finderBooks() {
