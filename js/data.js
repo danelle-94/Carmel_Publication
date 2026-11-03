@@ -6,17 +6,16 @@ window.CATALOG_DATA = {
   "publisher": {
     "name": "Carmel Publications",
     "tagline": "Inspiring Curiosity, One Page at a Time",
-    "location": "Mulanthuruthy, District Ernakulam, Keralam 682314",
-    "pincode": "682314",
-    "state": "Kerala, India",
-    "founded": "Educational & Children's Book Publishing",
-    "email": "info@carmelpublications.com",
-    "phone": "+91 484 2740000",
+    "email": "carmelpublications7@gmail.com",
+    "phone": "+91 97797 37711",
+    "phone_alt": "+91 98780 37711",
+    "landline": "0181-4054881",
+    "head_office": "33A, First Floor, Tower Enclave Phase 1, Wadala Chowk, Nakodar Road, Jalandhar, Punjab 144003",
+    "branch_office": "Mulanthuruthy, District Ernakulam, Kerala 682314",
     "stats": {
       "books_count": 25,
       "categories_count": 6,
-      "collections_count": 6,
-      "illustrations": "2,500+ Handcrafted Artworks"
+      "collections_count": 7
     }
   },
   "categories": [
@@ -79,7 +78,7 @@ window.CATALOG_DATA = {
       "id": "art-craft",
       "name": "Art, Craft & Creativity",
       "tagline": "Creative Canvas & Tactile Sensory Art",
-      "description": "Award-winning 6-part landscape art & craft curriculum covering finger painting, origami, watercolor washes, and 3D crafts.",
+      "description": "Complete 6-part landscape art & craft curriculum covering finger painting, origami, watercolor washes, and 3D crafts.",
       "icon": "palette",
       "count": 6,
       "accent": "#10B981",
@@ -129,6 +128,13 @@ window.CATALOG_DATA = {
       "tagline": "Devnagari Hindi Primers",
       "description": "Foundational Hindi vowel and word formation books with rich cultural illustrations.",
       "badge": "Language Heritage"
+    },
+    {
+      "id": "little-thinkers",
+      "name": "Little Thinkers",
+      "tagline": "Fun with Numbers 1-50 & 1-100",
+      "description": "Playful counting, tracing and early-logic workbooks that make numbers friendly.",
+      "badge": "Early Maths"
     }
   ],
   "books": [

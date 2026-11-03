@@ -4,190 +4,194 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Carmel Publications | Interactive Digital Book Catalogue</title>
+  <title>Carmel Publications | Children's Books for Nursery to Grade 3</title>
   <meta name="description"
-    content="Discover Carmel Publications' vibrant catalog of educational books, early learning primers, handwriting series, mathematics, bilingual rhymes, and creative art & craft volumes.">
+    content="Browse the Carmel Publications catalogue: alphabet and picture-dictionary books, Hindi primers, cursive writing, numbers, bilingual rhymes and art & craft workbooks for Nursery to Grade 3.">
   <meta name="keywords"
-    content="Carmel Publications, Book Catalogue, Early Childhood, Alphabet Galaxy, Children's Books, Art and Craft, Rhymes, Ernakulam, Kerala">
-  <meta property="og:title" content="Carmel Publications - Modern Interactive Book Catalogue">
+    content="Carmel Publications, children's books, early learning, Alphabet Galaxy, cursive writing, Hindi Swar Mala, rhymes and balgeet, art and craft, Jalandhar, Ernakulam">
+  <meta name="theme-color" content="#3155E7">
+  <meta property="og:title" content="Carmel Publications - Children's Book Catalogue">
   <meta property="og:description"
-    content="Explore our rich collection of children's literature, foundational literacy, and creative learning publications.">
+    content="25 full-colour books for Nursery to Grade 3. Find the right books for your child, class or school.">
   <meta property="og:image" content="assets/img/logo.png">
   <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary">
 
-  <!-- Google Fonts: Outfit (Display) & Plus Jakarta Sans (Body) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
     href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap"
     rel="stylesheet">
 
-  <!-- Core Stylesheet -->
   <link rel="stylesheet" href="css/style.css">
   <link rel="icon" type="image/png" href="assets/img/logo.png">
+  <script>document.documentElement.classList.add('js');</script>
 </head>
 
 <body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
 
-  <!-- ==========================================================================
-       Global Header
-       ========================================================================== -->
-  <header class="site-header">
+  <!-- Header -->
+  <header class="site-header" id="siteHeader">
     <div class="container header-inner">
-      <div class="header-left-group">
-        <!-- Brand Logo -->
-        <a href="#home" class="brand-logo-link" aria-label="Carmel Publications Home">
-          <img src="assets/img/logo.png" alt="Carmel Publications Logo" class="brand-logo-img">
-        </a>
+      <a href="#home" class="brand-logo-link" aria-label="Carmel Publications - Home">
+        <img src="assets/img/logo.png" alt="Carmel Publications" class="brand-logo-img" width="117" height="52">
+      </a>
 
-        <!-- Desktop Navigation (positioned right next to Logo) -->
-        <nav class="desktop-nav" aria-label="Main Navigation">
-          <ul class="nav-links">
-            <li><a href="#home" class="nav-link active">Home</a></li>
-            <li><a href="#catalogue" class="nav-link">Catalogue</a></li>
-            <li><a href="#categories" class="nav-link">Categories</a></li>
-            <li><a href="#collections" class="nav-link">Collections</a></li>
-            <li><a href="#spotlight" class="nav-link">Featured</a></li>
-            <li><a href="#about" class="nav-link">About Publisher</a></li>
-          </ul>
-        </nav>
-      </div>
+      <nav class="desktop-nav" aria-label="Main">
+        <ul class="nav-links">
+          <li><a href="#home" class="nav-link" data-section="home">Home</a></li>
+          <li><a href="#finder" class="nav-link" data-section="finder">Book Finder</a></li>
+          <li><a href="#categories" class="nav-link" data-section="categories">Categories</a></li>
+          <li><a href="#catalogue" class="nav-link" data-section="catalogue">Catalogue</a></li>
+          <li><a href="#collections" class="nav-link" data-section="collections">Collections</a></li>
+          <li><a href="#about" class="nav-link" data-section="about">About</a></li>
+        </ul>
+      </nav>
 
-      <!-- Right Side Header Actions -->
       <div class="header-actions">
-          <!-- Quick Search Button -->
-          <button class="search-trigger-btn" id="searchTriggerBtn" title="Search Catalogue (Ctrl+K)">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
-              stroke-linecap="round" stroke-linejoin="round">
-              <circle cx="11" cy="11" r="8"></circle>
-              <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-            </svg>
-            <span>Search</span>
-            <span class="kbd-shortcut">⌘K</span>
-          </button>
+        <button class="search-trigger-btn" id="searchTriggerBtn" type="button" aria-label="Search the catalogue">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+            stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="11" cy="11" r="8"></circle>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+          </svg>
+          <span class="search-trigger-label">Search</span>
+          <kbd class="kbd-shortcut" id="kbdHint">Ctrl K</kbd>
+        </button>
 
-          <!-- Saved / Reading List Button -->
-          <button class="btn-icon saved-btn" id="savedBooksBtn" title="View Reading List">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-              stroke-linecap="round" stroke-linejoin="round">
-              <path
-                d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z">
-              </path>
-            </svg>
-            <span class="saved-count-pill" id="savedCountBadge" style="display: none;">0</span>
-          </button>
+        <button class="btn-icon saved-btn" id="savedBooksBtn" type="button" aria-label="Open reading list">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path
+              d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z">
+            </path>
+          </svg>
+          <span class="saved-count-pill" id="savedCountBadge" hidden>0</span>
+        </button>
 
-          <!-- Explore Catalogue CTA -->
-          <a href="#catalogue" class="btn btn-primary btn-sm">Explore Catalogue</a>
+        <a href="#finder" class="btn btn-primary btn-sm header-cta">Find my books</a>
 
-          <!-- Mobile Menu Toggle -->
-          <button class="mobile-menu-toggle" id="mobileMenuBtn" aria-label="Open Mobile Menu">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-              stroke-linecap="round" stroke-linejoin="round">
-              <line x1="3" y1="12" x2="21" y2="12"></line>
-              <line x1="3" y1="6" x2="21" y2="6"></line>
-              <line x1="3" y1="18" x2="21" y2="18"></line>
-            </svg>
-          </button>
-        </div>
+        <button class="mobile-menu-toggle" id="mobileMenuBtn" type="button" aria-label="Open menu"
+          aria-expanded="false" aria-controls="mobileNavDrawer">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <line x1="3" y1="12" x2="21" y2="12"></line>
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <line x1="3" y1="18" x2="21" y2="18"></line>
+          </svg>
+        </button>
       </div>
-    </header>
+    </div>
+  </header>
 
-  <main>
-    <!-- ==========================================================================
-         Hero Section (Module 4.2)
-         ========================================================================== -->
+  <!-- Mobile navigation -->
+  <div class="mobile-nav-backdrop" id="mobileNavDrawer" aria-hidden="true">
+    <nav class="mobile-nav-panel" aria-label="Mobile">
+      <div class="mobile-nav-head">
+        <img src="assets/img/logo.png" alt="Carmel Publications" class="brand-logo-img" width="105" height="47">
+        <button class="btn-icon" id="mobileNavClose" type="button" aria-label="Close menu">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+            stroke-linecap="round" aria-hidden="true">
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+      <ul class="mobile-nav-links">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#finder">Book Finder</a></li>
+        <li><a href="#categories">Categories</a></li>
+        <li><a href="#catalogue">Catalogue</a></li>
+        <li><a href="#collections">Collections</a></li>
+        <li><a href="#about">About</a></li>
+      </ul>
+      <div class="mobile-nav-actions">
+        <button class="btn btn-primary" type="button" data-open-inquiry>Request specimen copies</button>
+      </div>
+    </nav>
+  </div>
+
+  <main id="main">
+    <!-- Hero -->
     <section class="hero-section" id="home">
       <div class="container hero-grid">
         <div class="hero-content">
           <div class="hero-pill-badge">
             <span class="dot"></span>
-            <span>2024-2025 Comprehensive Publishing Catalogue</span>
+            <span>2026-27 catalogue &middot; Nursery to Grade 3</span>
           </div>
 
           <h1 class="hero-title">
-            Stories, Ideas & <span class="gradient-text">Worlds Between Covers.</span>
+            Stories, ideas &amp; <span class="gradient-text">worlds between covers.</span>
           </h1>
 
           <p class="hero-description">
-            Explore a world of published educational works, thoughtfully curated collections, and illustrated books
-            created to inspire childhood curiosity, artistic expression, and foundational literacy.
+            Illustrated books that help young children learn letters, numbers, Hindi, handwriting, rhymes and
+            creative skills &mdash; published for parents, teachers and schools.
           </p>
 
           <div class="hero-cta-group">
-            <a href="#catalogue" class="btn btn-primary">
-              <span>Explore Complete Catalogue</span>
+            <a href="#finder" class="btn btn-primary">
+              <span>Find the right books</span>
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                stroke-linecap="round" stroke-linejoin="round">
+                stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                 <line x1="5" y1="12" x2="19" y2="12"></line>
                 <polyline points="12 5 19 12 12 19"></polyline>
               </svg>
             </a>
-            <a href="#categories" class="btn btn-outline">
-              <span>Browse Categories</span>
-            </a>
+            <a href="#catalogue" class="btn btn-outline"><span>Browse all 25 books</span></a>
           </div>
 
-          <div class="hero-stats-strip">
+          <dl class="hero-stats-strip">
             <div class="stat-item">
-              <span class="stat-number">25</span>
-              <span class="stat-label">Published Volumes</span>
+              <dt class="stat-label">Published books</dt>
+              <dd class="stat-number" id="statBooks">25</dd>
             </div>
             <div class="stat-item">
-              <span class="stat-number">6</span>
-              <span class="stat-label">Core Categories</span>
+              <dt class="stat-label">Subject areas</dt>
+              <dd class="stat-number" id="statCategories">6</dd>
             </div>
             <div class="stat-item">
-              <span class="stat-number">100%</span>
-              <span class="stat-label">Full-Color Editions</span>
+              <dt class="stat-label">Grade range</dt>
+              <dd class="stat-number">Nursery&ndash;3</dd>
             </div>
             <div class="stat-item">
-              <span class="stat-number">Kerala</span>
-              <span class="stat-label">Mulanthuruthy</span>
+              <dt class="stat-label">English &amp; Hindi</dt>
+              <dd class="stat-number">Bilingual</dd>
             </div>
-          </div>
+          </dl>
         </div>
 
-        <!-- 3D Interactive Book Showcase -->
         <div class="hero-visual">
-          <div class="hero-book-showcase">
-            <!-- Left Card: Rhymes & Balgeet -->
-            <div class="floating-card card-left" onclick="window.CarmelApp.openBookModal('rhymes-balgeet-a')"
-              title="Inspect Rhymes & Balgeet">
-              <img src="assets/covers/front/rhymes-balgeet-a.webp" alt="Rhymes & Balgeet Book A" />
-            </div>
-
-            <!-- Center Primary Card: Alphabet Galaxy -->
-            <div class="floating-card card-primary" onclick="window.CarmelApp.openBookModal('alphabet-galaxy')"
-              title="Inspect Alphabet Galaxy">
-              <img src="assets/covers/front/alphabet-galaxy.webp" alt="Alphabet Galaxy Cover" />
-            </div>
-
-            <!-- Right Card: Fun with Numbers -->
-            <div class="floating-card card-right" onclick="window.CarmelApp.openBookModal('fun-with-numbers-1')"
-              title="Inspect Fun with Numbers">
-              <img src="assets/covers/front/fun-with-numbers-1.webp" alt="Fun with Numbers Book 1" />
-            </div>
-
-            <!-- Bottom Landscape Card: Fun with Art and Craft -->
-            <div class="floating-card card-back" onclick="window.CarmelApp.openBookModal('art-craft-1')"
-              title="Inspect Fun with Art and Craft">
-              <img src="assets/covers/front/art-craft-1.webp" alt="Fun with Art & Craft Part 1" />
-            </div>
-
+          <div class="hero-book-showcase" id="heroShowcase">
+            <button class="floating-card card-left" type="button" data-open-book="rhymes-balgeet-a"
+              aria-label="View Rhymes &amp; Balgeet Book A">
+              <img src="assets/covers/front/rhymes-balgeet-a.webp" alt="" width="210" height="280" />
+            </button>
+            <button class="floating-card card-right" type="button" data-open-book="fun-with-numbers-1"
+              aria-label="View Fun with Numbers Book 1">
+              <img src="assets/covers/front/fun-with-numbers-1.webp" alt="" width="220" height="290" />
+            </button>
+            <button class="floating-card card-primary" type="button" data-open-book="alphabet-galaxy"
+              aria-label="View Alphabet Galaxy">
+              <img src="assets/covers/front/alphabet-galaxy.webp" alt="" width="250" height="330" />
+            </button>
+            <button class="floating-card card-back" type="button" data-open-book="art-craft-1"
+              aria-label="View Fun with Art and Craft Part 1">
+              <img src="assets/covers/front/art-craft-1.webp" alt="" width="280" height="224" />
+            </button>
             <div class="hero-curated-tag">
-              <div class="icon-circle">
+              <div class="icon-circle" aria-hidden="true">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
                   stroke-linecap="round" stroke-linejoin="round">
-                  <polygon
-                    points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2">
-                  </polygon>
+                  <polyline points="20 6 9 17 4 12"></polyline>
                 </svg>
               </div>
               <div>
-                <div style="font-size: 0.85rem; font-weight: 700; color: var(--color-navy);">Original Publisher Edition
-                </div>
-                <div style="font-size: 0.72rem; color: var(--color-text-muted);">High-Definition Vector Print</div>
+                <div class="tag-title">Full-colour editions</div>
+                <div class="tag-sub">Tap a cover to look inside</div>
               </div>
             </div>
           </div>
@@ -195,355 +199,127 @@
       </div>
     </section>
 
-    <!-- ==========================================================================
-         Browse by Category Section (Module 4.4)
-         ========================================================================== -->
+    <!-- Book Finder: guided shelf builder -->
+    <section class="finder-section" id="finder" aria-labelledby="finderTitle">
+      <div class="container">
+        <div class="finder-card">
+          <div class="finder-intro">
+            <span class="badge badge-accent">New &middot; Book Finder</span>
+            <h2 class="section-title" id="finderTitle">Build a learning shelf in two taps</h2>
+            <p class="section-subtitle">Pick a grade, then (optionally) the skills you want to focus on. We assemble
+              the matching books, add up the price and let you save the whole set.</p>
+          </div>
+
+          <div class="finder-steps">
+            <fieldset class="finder-step">
+              <legend><span class="step-num">1</span> Choose a grade</legend>
+              <div class="grade-path" id="gradePath" role="radiogroup" aria-label="Grade"></div>
+            </fieldset>
+
+            <fieldset class="finder-step">
+              <legend><span class="step-num">2</span> Focus on <small>(optional)</small></legend>
+              <div class="focus-chips" id="focusChips"></div>
+            </fieldset>
+          </div>
+
+          <div class="finder-results" id="finderResults" aria-live="polite"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Categories -->
     <section class="categories-section" id="categories">
       <div class="container">
-        <div class="section-header text-center">
-          <span class="badge badge-primary section-badge">Curated Learning Ladders</span>
-          <h2 class="section-title">Explore by Category</h2>
-          <p class="section-subtitle">Structured educational series spanning language acquisition, numerical reasoning,
-            cursive art, and tactile creative workshops.</p>
+        <div class="section-header text-center reveal">
+          <span class="badge badge-primary section-badge">Subjects</span>
+          <h2 class="section-title">Explore by category</h2>
+          <p class="section-subtitle">Six graded series covering language, numbers, handwriting, Hindi, rhymes and
+            hands-on creativity.</p>
         </div>
-
-        <div class="categories-grid">
-          <!-- Category 1: Early Childhood -->
-          <div class="category-card" style="--cat-accent: #3155E7; --cat-bg: rgba(49, 85, 231, 0.08);"
-            onclick="window.CarmelApp.setCategory('early-childhood'); document.getElementById('catalogue').scrollIntoView({behavior: 'smooth'});">
-            <div class="cat-top">
-              <div class="cat-icon-box">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                  stroke-linecap="round" stroke-linejoin="round">
-                  <path
-                    d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83">
-                  </path>
-                </svg>
-              </div>
-              <span class="cat-count-pill">4 Volumes</span>
-            </div>
-            <div>
-              <h3 class="cat-title">Early Childhood & Alphabet</h3>
-              <div class="cat-tagline">First Words, Phonics & Visual Vocabulary</div>
-              <p class="cat-desc">Alphabet Galaxy, Picture Dictionaries A-C, and foundational word books crafting
-                emergent literacy and visual cognition.</p>
-            </div>
-            <div class="cat-explore-link">
-              <span>View Publications</span>
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-                <line x1="5" y1="12" x2="19" y2="12"></line>
-                <polyline points="12 5 19 12 12 19"></polyline>
-              </svg>
-            </div>
-          </div>
-
-          <!-- Category 2: Handwriting -->
-          <div class="category-card" style="--cat-accent: #7928CA; --cat-bg: rgba(121, 40, 202, 0.08);"
-            onclick="window.CarmelApp.setCategory('handwriting'); document.getElementById('catalogue').scrollIntoView({behavior: 'smooth'});">
-            <div class="cat-top">
-              <div class="cat-icon-box">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                  stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M12 19l7-7 3 3-7 7-3-3z"></path>
-                  <path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"></path>
-                  <path d="M2 2l7.586 7.586"></path>
-                  <circle cx="11" cy="11" r="2"></circle>
-                </svg>
-              </div>
-              <span class="cat-count-pill">3 Volumes</span>
-            </div>
-            <div>
-              <h3 class="cat-title">Handwriting & Penmanship</h3>
-              <div class="cat-tagline">Mastering Fluent Cursive Artistry</div>
-              <p class="cat-desc">A guided 3-stage cursive penmanship series taking young writers from strokes to
-                uppercase, lowercase, and sentence flow.</p>
-            </div>
-            <div class="cat-explore-link">
-              <span>View Publications</span>
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-                <line x1="5" y1="12" x2="19" y2="12"></line>
-                <polyline points="12 5 19 12 12 19"></polyline>
-              </svg>
-            </div>
-          </div>
-
-          <!-- Category 3: Mathematics -->
-          <div class="category-card" style="--cat-accent: #0284C7; --cat-bg: rgba(2, 132, 199, 0.08);"
-            onclick="window.CarmelApp.setCategory('mathematics'); document.getElementById('catalogue').scrollIntoView({behavior: 'smooth'});">
-            <div class="cat-top">
-              <div class="cat-icon-box">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                  stroke-linecap="round" stroke-linejoin="round">
-                  <rect x="4" y="2" width="16" height="20" rx="2"></rect>
-                  <line x1="8" y1="6" x2="16" y2="6"></line>
-                  <line x1="16" y1="14" x2="16" y2="18"></line>
-                  <path d="M16 10h.01"></path>
-                  <path d="M12 10h.01"></path>
-                  <path d="M8 10h.01"></path>
-                  <path d="M12 14h.01"></path>
-                  <path d="M8 14h.01"></path>
-                  <path d="M12 18h.01"></path>
-                  <path d="M8 18h.01"></path>
-                </svg>
-              </div>
-              <span class="cat-count-pill">2 Volumes</span>
-            </div>
-            <div>
-              <h3 class="cat-title">Mathematics & Numbers</h3>
-              <div class="cat-tagline">Tangible Counting & Early Logic</div>
-              <p class="cat-desc">Fun with Numbers Books 1 & 2 introduce counting, sequence completion, single-digit
-                math, and pattern puzzles.</p>
-            </div>
-            <div class="cat-explore-link">
-              <span>View Publications</span>
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-                <line x1="5" y1="12" x2="19" y2="12"></line>
-                <polyline points="12 5 19 12 12 19"></polyline>
-              </svg>
-            </div>
-          </div>
-
-          <!-- Category 4: Hindi Language -->
-          <div class="category-card" style="--cat-accent: #DC2626; --cat-bg: rgba(220, 38, 38, 0.08);"
-            onclick="window.CarmelApp.setCategory('hindi-literature'); document.getElementById('catalogue').scrollIntoView({behavior: 'smooth'});">
-            <div class="cat-top">
-              <div class="cat-icon-box">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                  stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
-                  <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
-                </svg>
-              </div>
-              <span class="cat-count-pill">2 Volumes</span>
-            </div>
-            <div>
-              <h3 class="cat-title">Hindi Language & Literature</h3>
-              <div class="cat-tagline">Meri Swar & Shabad Mala Series</div>
-              <p class="cat-desc">Vibrant Devnagari primers teaching Hindi vowels (स्वर अ से अः) and consonants (शब्द
-                माला) with cultural richness.</p>
-            </div>
-            <div class="cat-explore-link">
-              <span>View Publications</span>
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-                <line x1="5" y1="12" x2="19" y2="12"></line>
-                <polyline points="12 5 19 12 12 19"></polyline>
-              </svg>
-            </div>
-          </div>
-
-          <!-- Category 5: Rhymes & Balgeet -->
-          <div class="category-card" style="--cat-accent: #EA580C; --cat-bg: rgba(234, 88, 12, 0.08);"
-            onclick="window.CarmelApp.setCategory('rhymes-poetry'); document.getElementById('catalogue').scrollIntoView({behavior: 'smooth'});">
-            <div class="cat-top">
-              <div class="cat-icon-box">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                  stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M9 18V5l12-2v13"></path>
-                  <circle cx="6" cy="18" r="3"></circle>
-                  <circle cx="18" cy="16" r="3"></circle>
-                </svg>
-              </div>
-              <span class="cat-count-pill">6 Volumes</span>
-            </div>
-            <div>
-              <h3 class="cat-title">Rhymes, Poetry & Songs</h3>
-              <div class="cat-tagline">Bilingual English & Hindi Rhymes</div>
-              <p class="cat-desc">A complete 6-book anthology bridging classic English nursery rhymes with beloved Hindi
-                Balgeet and action songs.</p>
-            </div>
-            <div class="cat-explore-link">
-              <span>View Publications</span>
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-                <line x1="5" y1="12" x2="19" y2="12"></line>
-                <polyline points="12 5 19 12 12 19"></polyline>
-              </svg>
-            </div>
-          </div>
-
-          <!-- Category 6: Art & Craft -->
-          <div class="category-card" style="--cat-accent: #059669; --cat-bg: rgba(5, 150, 105, 0.08);"
-            onclick="window.CarmelApp.setCategory('art-craft'); document.getElementById('catalogue').scrollIntoView({behavior: 'smooth'});">
-            <div class="cat-top">
-              <div class="cat-icon-box">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                  stroke-linecap="round" stroke-linejoin="round">
-                  <circle cx="13.5" cy="6.5" r=".5"></circle>
-                  <circle cx="17.5" cy="10.5" r=".5"></circle>
-                  <circle cx="8.5" cy="7.5" r=".5"></circle>
-                  <circle cx="6.5" cy="12.5" r=".5"></circle>
-                  <path
-                    d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.926 0 1.648-.746 1.648-1.688 0-.437-.18-.835-.437-1.125-.29-.289-.438-.652-.438-1.125a1.64 1.64 0 0 1 1.668-1.668h1.996c3.051 0 5.555-2.503 5.555-5.554C21.965 6.012 17.461 2 12 2z">
-                  </path>
-                </svg>
-              </div>
-              <span class="cat-count-pill">6 Volumes</span>
-            </div>
-            <div>
-              <h3 class="cat-title">Art, Craft & Creativity</h3>
-              <div class="cat-tagline">Sensory Exploration & Studio Craft</div>
-              <p class="cat-desc">Landscape format studio books (Books A-C & Parts 1-3) covering finger painting,
-                origami, watercolor washes, and 3D crafts.</p>
-            </div>
-            <div class="cat-explore-link">
-              <span>View Publications</span>
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-                <line x1="5" y1="12" x2="19" y2="12"></line>
-                <polyline points="12 5 19 12 12 19"></polyline>
-              </svg>
-            </div>
-          </div>
-        </div>
+        <div class="categories-grid" id="categoriesGrid"></div>
       </div>
     </section>
 
-    <!-- ==========================================================================
-         Featured Publications Spotlight (Module 4.3)
-         ========================================================================== -->
+    <!-- Spotlight -->
     <section class="spotlight-section" id="spotlight">
       <div class="container">
-        <div class="section-header">
-          <span class="badge badge-navy section-badge">Editor's Highlights</span>
-          <h2 class="section-title">Spotlight Publications</h2>
-          <p class="section-subtitle">Flagship editions celebrated for artistic design, child engagement, and
-            pedagogical excellence.</p>
+        <div class="section-header reveal">
+          <span class="badge badge-navy section-badge">Editor's picks</span>
+          <h2 class="section-title">Featured books</h2>
+          <p class="section-subtitle">Three favourites to start with.</p>
         </div>
-
-        <div class="spotlight-grid">
-          <!-- Spotlight 1 -->
-          <div class="spotlight-card" onclick="window.CarmelApp.openBookModal('alphabet-galaxy')">
-            <div class="spotlight-cover-wrap">
-              <img src="assets/covers/front/alphabet-galaxy.webp" alt="Alphabet Galaxy" class="spotlight-cover-img" />
-            </div>
-            <div class="spotlight-meta-pill">
-              <span class="badge badge-primary">Early Childhood</span>
-              <span style="font-size: 0.78rem; color: #94A3B8;">Ages 3 - 5</span>
-            </div>
-            <h3 class="spotlight-title">Alphabet Galaxy</h3>
-            <p class="spotlight-sub">An Illustrated Cosmic Journey through A to Z with phonics sound recognition and
-              word association.</p>
-            <div class="spotlight-footer">
-              <span class="spotlight-price">₹190</span>
-              <button class="btn btn-primary btn-sm">Inspect Publication</button>
-            </div>
-          </div>
-
-          <!-- Spotlight 2 -->
-          <div class="spotlight-card" onclick="window.CarmelApp.openBookModal('rhymes-balgeet-a')">
-            <div class="spotlight-cover-wrap">
-              <img src="assets/covers/front/rhymes-balgeet-a.webp" alt="Rhymes & Balgeet" class="spotlight-cover-img" />
-            </div>
-            <div class="spotlight-meta-pill">
-              <span class="badge badge-secondary">Rhymes & Songs</span>
-              <span style="font-size: 0.78rem; color: #94A3B8;">Bilingual Edition</span>
-            </div>
-            <h3 class="spotlight-title">Rhymes & Balgeet (Book A)</h3>
-            <p class="spotlight-sub">Enchanting dual-language anthology featuring classic English rhymes paired with
-              traditional Hindi Balgeet.</p>
-            <div class="spotlight-footer">
-              <span class="spotlight-price">₹160</span>
-              <button class="btn btn-secondary btn-sm">Inspect Publication</button>
-            </div>
-          </div>
-
-          <!-- Spotlight 3 -->
-          <div class="spotlight-card" onclick="window.CarmelApp.openBookModal('art-craft-1')">
-            <div class="spotlight-cover-wrap">
-              <img src="assets/covers/front/art-craft-1.webp" alt="Fun with Art and Craft"
-                class="spotlight-cover-img" />
-            </div>
-            <div class="spotlight-meta-pill">
-              <span class="badge badge-accent">Art & Creativity</span>
-              <span style="font-size: 0.78rem; color: #94A3B8;">Landscape Pad</span>
-            </div>
-            <h3 class="spotlight-title">Fun with Art & Craft (Part 1)</h3>
-            <p class="spotlight-sub">Primary studio workbook teaching watercolor wash, clay modeling, festive pop-up
-              cards, and mixed media.</p>
-            <div class="spotlight-footer">
-              <span class="spotlight-price">₹180</span>
-              <button class="btn btn-primary btn-sm">Inspect Publication</button>
-            </div>
-          </div>
-        </div>
+        <div class="spotlight-grid" id="spotlightGrid"></div>
       </div>
     </section>
 
-    <!-- ==========================================================================
-         Module B — Interactive Book Catalogue
-         ========================================================================== -->
+    <!-- Catalogue -->
     <section class="catalogue-section" id="catalogue">
       <div class="container">
-        <div class="section-header text-center">
-          <span class="badge badge-primary section-badge">Interactive Digital Catalogue</span>
-          <h2 class="section-title">Explore Complete Library</h2>
-          <p class="section-subtitle">Search, filter, and inspect all 25 Carmel Publications educational volumes with
-            high-resolution cover artwork and curriculum details.</p>
+        <div class="section-header text-center reveal">
+          <span class="badge badge-primary section-badge">Full catalogue</span>
+          <h2 class="section-title">Explore the complete library</h2>
+          <p class="section-subtitle">Search, filter and open any book to see its full cover, details and learning
+            outcomes.</p>
         </div>
 
-        <!-- Sticky Controls Bar -->
-        <div class="catalogue-controls-wrapper">
-          <div class="search-and-filter-bar">
-            <!-- Search Input -->
+        <div class="catalogue-controls" id="catalogueControls">
+          <div class="controls-row">
             <div class="search-input-box">
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
-                stroke-linecap="round" stroke-linejoin="round">
+                stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                 <circle cx="11" cy="11" r="8"></circle>
                 <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
               </svg>
-              <input type="text" class="catalogue-search-input" id="catalogueSearchInput"
-                placeholder="Search by title, category, collection, or ISBN..." autocomplete="off">
-              <button class="search-clear-btn" id="searchClearBtn" title="Clear Search">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <input type="search" class="catalogue-search-input" id="catalogueSearchInput"
+                placeholder="Search title, subject, collection or ISBN" aria-label="Search the catalogue"
+                autocomplete="off">
+              <button class="search-clear-btn" id="searchClearBtn" type="button" aria-label="Clear search" hidden>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                  aria-hidden="true">
                   <line x1="18" y1="6" x2="6" y2="18"></line>
                   <line x1="6" y1="6" x2="18" y2="18"></line>
                 </svg>
               </button>
             </div>
 
-            <!-- Filter Dropdowns -->
-            <div class="filter-dropdowns-group">
-              <!-- Collection Filter -->
-              <select class="custom-select" id="collectionSelect" aria-label="Filter by Collection">
-                <option value="all">All Collections</option>
-                <option value="foundation-series">Foundation Series</option>
-                <option value="visual-dictionary">Visual Dictionary</option>
-                <option value="melody-verse">Melody & Verse</option>
-                <option value="creative-canvas">Creative Canvas</option>
-                <option value="pen-heritage">Pen & Ink Heritage</option>
-                <option value="bhasha-gyan">Bhasha Gyan</option>
-              </select>
+            <button class="filters-toggle" id="filtersToggle" type="button" aria-expanded="false"
+              aria-controls="filterPanel">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"
+                stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <line x1="4" y1="6" x2="20" y2="6"></line>
+                <line x1="7" y1="12" x2="17" y2="12"></line>
+                <line x1="10" y1="18" x2="14" y2="18"></line>
+              </svg>
+              <span>Filters</span>
+              <span class="filters-count" id="filtersCount" hidden>0</span>
+            </button>
 
-              <!-- Level Filter -->
-              <select class="custom-select" id="levelSelect" aria-label="Filter by Grade Level">
-                <option value="all">All Levels</option>
-                <option value="nursery">Nursery</option>
-                <option value="lkg">LKG</option>
-                <option value="ukg">UKG</option>
-                <option value="grade 1">Grade 1</option>
-                <option value="grade 2">Grade 2</option>
-                <option value="grade 3">Grade 3</option>
-              </select>
-
-              <!-- Sort Filter -->
-              <select class="custom-select" id="sortSelect" aria-label="Sort Catalogue">
-                <option value="featured">Featured First</option>
+            <div class="filter-panel" id="filterPanel">
+              <select class="custom-select" id="collectionSelect" aria-label="Filter by collection"></select>
+              <select class="custom-select" id="levelSelect" aria-label="Filter by grade"></select>
+              <select class="custom-select" id="sortSelect" aria-label="Sort books">
+                <option value="featured">Featured first</option>
+                <option value="grade">Grade: lowest first</option>
                 <option value="title-asc">Title: A to Z</option>
                 <option value="title-desc">Title: Z to A</option>
-                <option value="price-low">Price: Low to High</option>
-                <option value="rating">Top Rated</option>
+                <option value="price-low">Price: low to high</option>
+                <option value="price-high">Price: high to low</option>
               </select>
-
-              <!-- View Mode Toggle -->
-              <div class="view-toggle-group">
-                <button class="view-toggle-btn active" id="viewGridBtn" title="Grid View">
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <div class="view-toggle-group" role="group" aria-label="Layout">
+                <button class="view-toggle-btn active" id="viewGridBtn" type="button" aria-label="Grid view"
+                  aria-pressed="true">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                    aria-hidden="true">
                     <rect x="3" y="3" width="7" height="7"></rect>
                     <rect x="14" y="3" width="7" height="7"></rect>
                     <rect x="14" y="14" width="7" height="7"></rect>
                     <rect x="3" y="14" width="7" height="7"></rect>
                   </svg>
                 </button>
-                <button class="view-toggle-btn" id="viewListBtn" title="List View">
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <button class="view-toggle-btn" id="viewListBtn" type="button" aria-label="List view"
+                  aria-pressed="false">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                    aria-hidden="true">
                     <line x1="8" y1="6" x2="21" y2="6"></line>
                     <line x1="8" y1="12" x2="21" y2="12"></line>
                     <line x1="8" y1="18" x2="21" y2="18"></line>
@@ -556,463 +332,265 @@
             </div>
           </div>
 
-          <!-- Category Filter Pills Strip -->
-          <div class="category-pills-strip" id="categoryPillsStrip">
-            <!-- Dynamically populated by js/app.js -->
-          </div>
+          <div class="category-pills-strip" id="categoryPillsStrip" role="group" aria-label="Filter by category"></div>
         </div>
 
-        <!-- Active Filter Chips & Results Count -->
         <div class="results-meta-bar">
-          <div class="results-count" id="resultsCountText">Showing <strong>25</strong> publications</div>
+          <div class="results-count" id="resultsCountText" role="status">Showing 25 books</div>
           <div class="active-chips-list" id="activeFilterChips"></div>
         </div>
 
-        <!-- Books Grid Container -->
-        <div class="books-grid" id="booksGrid">
-          <!-- Dynamically populated by js/app.js -->
-        </div>
+        <div class="books-grid" id="booksGrid"></div>
       </div>
     </section>
 
-    <!-- ==========================================================================
-         Curated Collections Section (Module 7)
-         ========================================================================== -->
+    <!-- Collections -->
     <section class="collections-section" id="collections">
       <div class="container">
-        <div class="section-header text-center">
-          <span class="badge badge-secondary section-badge">Editorial Groupings</span>
-          <h2 class="section-title">Curated Collections</h2>
-          <p class="section-subtitle">Specially coordinated multi-volume book series crafted for holistic preschool and
-            early primary school development.</p>
+        <div class="section-header text-center reveal">
+          <span class="badge badge-secondary section-badge">Series</span>
+          <h2 class="section-title">Curated collections</h2>
+          <p class="section-subtitle">Multi-book series designed to be used together, in order.</p>
         </div>
-
-        <div class="collections-grid">
-          <!-- Collection 1 -->
-          <div class="collection-banner-card"
-            onclick="window.CarmelApp.clearAllFilters(); document.getElementById('collectionSelect').value='foundation-series'; document.getElementById('collectionSelect').dispatchEvent(new Event('change')); document.getElementById('catalogue').scrollIntoView({behavior: 'smooth'});">
-            <span class="collection-badge-tag">Core Curriculum</span>
-            <div>
-              <h3 class="collection-title">Foundation Series</h3>
-              <div class="collection-tagline">Early Literacy & Phonics Starters</div>
-              <p class="collection-desc">Alphabet Galaxy, Word Book, and picture books building initial phonetic
-                confidence and spoken English vocabulary.</p>
-            </div>
-            <div class="collection-footer-cta">
-              <span>View Collection</span>
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-                <line x1="5" y1="12" x2="19" y2="12"></line>
-                <polyline points="12 5 19 12 12 19"></polyline>
-              </svg>
-            </div>
-          </div>
-
-          <!-- Collection 2 -->
-          <div class="collection-banner-card"
-            onclick="window.CarmelApp.clearAllFilters(); document.getElementById('collectionSelect').value='visual-dictionary'; document.getElementById('collectionSelect').dispatchEvent(new Event('change')); document.getElementById('catalogue').scrollIntoView({behavior: 'smooth'});">
-            <span class="collection-badge-tag">3-Part Progressive</span>
-            <div>
-              <h3 class="collection-title">Visual Dictionary Series</h3>
-              <div class="collection-tagline">Picture Dictionary ABC (A, B, C)</div>
-              <p class="collection-desc">Progressive 3-tier visual encyclopedia transitioning children from basic single
-                words to complex contextual spreads.</p>
-            </div>
-            <div class="collection-footer-cta">
-              <span>View Collection</span>
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-                <line x1="5" y1="12" x2="19" y2="12"></line>
-                <polyline points="12 5 19 12 12 19"></polyline>
-              </svg>
-            </div>
-          </div>
-
-          <!-- Collection 3 -->
-          <div class="collection-banner-card"
-            onclick="window.CarmelApp.clearAllFilters(); document.getElementById('collectionSelect').value='melody-verse'; document.getElementById('collectionSelect').dispatchEvent(new Event('change')); document.getElementById('catalogue').scrollIntoView({behavior: 'smooth'});">
-            <span class="collection-badge-tag">Bilingual Excellence</span>
-            <div>
-              <h3 class="collection-title">Melody & Verse</h3>
-              <div class="collection-tagline">Rhymes & Balgeet (6 Volumes)</div>
-              <p class="collection-desc">Enchanting dual-language poetry series celebrating classic English rhymes
-                alongside traditional Hindi Balgeet.</p>
-            </div>
-            <div class="collection-footer-cta">
-              <span>View Collection</span>
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-                <line x1="5" y1="12" x2="19" y2="12"></line>
-                <polyline points="12 5 19 12 12 19"></polyline>
-              </svg>
-            </div>
-          </div>
-
-          <!-- Collection 4 -->
-          <div class="collection-banner-card"
-            onclick="window.CarmelApp.clearAllFilters(); document.getElementById('collectionSelect').value='creative-canvas'; document.getElementById('collectionSelect').dispatchEvent(new Event('change')); document.getElementById('catalogue').scrollIntoView({behavior: 'smooth'});">
-            <span class="collection-badge-tag">6-Part Studio</span>
-            <div>
-              <h3 class="collection-title">Creative Canvas Studio</h3>
-              <div class="collection-tagline">Fun with Art and Craft (A-C & 1-3)</div>
-              <p class="collection-desc">Landscape format drawing pads with perforated sheets, origami, tactile paste
-                crafts, and water color tutorials.</p>
-            </div>
-            <div class="collection-footer-cta">
-              <span>View Collection</span>
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-                <line x1="5" y1="12" x2="19" y2="12"></line>
-                <polyline points="12 5 19 12 12 19"></polyline>
-              </svg>
-            </div>
-          </div>
-
-          <!-- Collection 5 -->
-          <div class="collection-banner-card"
-            onclick="window.CarmelApp.clearAllFilters(); document.getElementById('collectionSelect').value='pen-heritage'; document.getElementById('collectionSelect').dispatchEvent(new Event('change')); document.getElementById('catalogue').scrollIntoView({behavior: 'smooth'});">
-            <span class="collection-badge-tag">Penmanship Mastery</span>
-            <div>
-              <h3 class="collection-title">Pen & Ink Heritage</h3>
-              <div class="collection-tagline">Cursive Writing (Books A, B, C)</div>
-              <p class="collection-desc">Mastering cursive handwriting with directional arrows, 4-line precision
-                rulings, and inspiring paragraph copywork.</p>
-            </div>
-            <div class="collection-footer-cta">
-              <span>View Collection</span>
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-                <line x1="5" y1="12" x2="19" y2="12"></line>
-                <polyline points="12 5 19 12 12 19"></polyline>
-              </svg>
-            </div>
-          </div>
-
-          <!-- Collection 6 -->
-          <div class="collection-banner-card"
-            onclick="window.CarmelApp.clearAllFilters(); document.getElementById('collectionSelect').value='bhasha-gyan'; document.getElementById('collectionSelect').dispatchEvent(new Event('change')); document.getElementById('catalogue').scrollIntoView({behavior: 'smooth'});">
-            <span class="collection-badge-tag">Language Heritage</span>
-            <div>
-              <h3 class="collection-title">Bhasha Gyan Series</h3>
-              <div class="collection-tagline">Meri Swar & Shabad Mala</div>
-              <p class="collection-desc">Celebrated Hindi Devnagari primers teaching vowels (अ to अः) and word building
-                (क to ज्ञ) with vibrant visuals.</p>
-            </div>
-            <div class="collection-footer-cta">
-              <span>View Collection</span>
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-                <line x1="5" y1="12" x2="19" y2="12"></line>
-                <polyline points="12 5 19 12 12 19"></polyline>
-              </svg>
-            </div>
-          </div>
-        </div>
+        <div class="collections-grid" id="collectionsGrid"></div>
       </div>
     </section>
 
-    <!-- ==========================================================================
-         Publisher Introduction & Heritage (Module 4.7)
-         ========================================================================== -->
+    <!-- About -->
     <section class="about-section" id="about">
       <div class="container about-grid">
-        <div class="about-content-left">
-          <span class="badge badge-primary">About the Publishing House</span>
-          <h2 class="about-title">Crafting Books That Shape Young Imaginations.</h2>
-          <p class="about-lead">
-            Carmel Publications is an educational publishing house committed to producing visually rich, pedagogically
-            sound, and artistically inspiring books for young learners.
-          </p>
-          <p class="about-body">
-            Based in Mulanthuruthy, Ernakulam, Kerala, Carmel Publications specializes in pre-primary and early primary
-            curriculum materials. Each book is designed from the child's perspective — combining vibrant full-color
-            offset printing, tactile paper stocks, and developmental learning ladders that make education a joyful
-            adventure.
-          </p>
+        <div class="about-content-left reveal">
+          <span class="badge badge-primary">About the publisher</span>
+          <h2 class="about-title">Books that shape young imaginations.</h2>
+          <p class="about-lead">Carmel Publications creates visually rich, carefully graded books for young learners
+            &mdash; from a child's first alphabet to cursive writing and creative workshops.</p>
+          <p class="about-body">Every title is designed from the child's point of view: bright full-colour
+            illustration, simple language, and a clear progression from Nursery to Grade 3. Our books are written to
+            support the NEP and NCF framework and are available in English and Hindi.</p>
 
           <div class="about-pillars-grid">
             <div class="pillar-item">
-              <div class="pillar-icon-box">
+              <div class="pillar-icon-box" aria-hidden="true">
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                   <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
                 </svg>
               </div>
               <div>
-                <h4 class="pillar-title">Premium Print Integrity</h4>
-                <p class="pillar-text">Heavyweight, tear-resistant paper and non-toxic soy-based ink printing.</p>
+                <h3 class="pillar-title">Full-colour print</h3>
+                <p class="pillar-text">Bright, child-friendly artwork on every page.</p>
               </div>
             </div>
-
             <div class="pillar-item">
-              <div class="pillar-icon-box">
+              <div class="pillar-icon-box" aria-hidden="true">
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                   <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
                   <polyline points="22 4 12 14.01 9 11.01"></polyline>
                 </svg>
               </div>
               <div>
-                <h4 class="pillar-title">Pedagogical Rigor</h4>
-                <p class="pillar-text">Graded progression matching early developmental and motor milestones.</p>
+                <h3 class="pillar-title">Graded progression</h3>
+                <p class="pillar-text">Each series builds step by step across grades.</p>
               </div>
             </div>
           </div>
 
-          <button class="btn btn-primary"
-            onclick="window.CarmelApp.openInquiryModal('Institutional Catalogue & Sample Request')">
-            <span>Request Specimen Copies</span>
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+          <button class="btn btn-primary" type="button" data-open-inquiry>
+            <span>Request specimen copies</span>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+              aria-hidden="true">
               <line x1="5" y1="12" x2="19" y2="12"></line>
               <polyline points="12 5 19 12 12 19"></polyline>
             </svg>
           </button>
         </div>
 
-        <!-- Publisher Fact Card -->
-        <div class="about-visual-box">
+        <div class="about-visual-box reveal">
           <div class="publisher-badge-card">
-            <img src="assets/img/logo.png" alt="Carmel Publications" class="pub-logo-large">
+            <img src="assets/img/logo.png" alt="Carmel Publications" class="pub-logo-large" width="130" height="58">
             <div>
               <h3 class="pub-name-headline">Carmel Publications</h3>
-              <p class="pub-address-text">Mulanthuruthy, District Ernakulam, Keralam 682314</p>
+              <p class="pub-address-text">Inspiring curiosity, one page at a time</p>
             </div>
           </div>
-
-          <div class="pub-meta-list">
+          <dl class="pub-meta-list">
             <div class="pub-meta-row">
-              <span class="pub-meta-label">Publishing Domain</span>
-              <span class="pub-meta-val">Pre-Primary & Primary Literature</span>
+              <dt class="pub-meta-label">Publishes</dt>
+              <dd class="pub-meta-val">Pre-primary &amp; primary books</dd>
             </div>
             <div class="pub-meta-row">
-              <span class="pub-meta-label">Active Titles</span>
-              <span class="pub-meta-val">25 Complete Illustrated Volumes</span>
+              <dt class="pub-meta-label">Titles</dt>
+              <dd class="pub-meta-val" id="aboutTitleCount">25 books</dd>
             </div>
             <div class="pub-meta-row">
-              <span class="pub-meta-label">Print Format</span>
-              <span class="pub-meta-val">Laminated Spreads & Drawing Pads</span>
+              <dt class="pub-meta-label">Head office</dt>
+              <dd class="pub-meta-val">Jalandhar, Punjab</dd>
             </div>
             <div class="pub-meta-row">
-              <span class="pub-meta-label">Geographic Region</span>
-              <span class="pub-meta-val">Ernakulam District, Kerala, India</span>
+              <dt class="pub-meta-label">Branch office</dt>
+              <dd class="pub-meta-val">Mulanthuruthy, Kerala</dd>
             </div>
-            <div class="pub-meta-row">
-              <span class="pub-meta-label">Postal Code</span>
-              <span class="pub-meta-val">682314</span>
-            </div>
-          </div>
+          </dl>
         </div>
       </div>
     </section>
 
-    <!-- ==========================================================================
-         Closing Call to Action (Module 4.8)
-         ========================================================================== -->
+    <!-- Closing CTA -->
     <section class="closing-cta-section">
-      <div class="container closing-cta-card">
-        <h2 class="closing-cta-title">Bring Quality Educational Literature to Young Learners.</h2>
-        <p class="closing-cta-text">
-          Explore our complete 2024-2025 catalogue or request institutional inspection copies for preschools, primary
-          schools, bookshops, and educational distributors.
-        </p>
+      <div class="container closing-cta-card reveal">
+        <h2 class="closing-cta-title">Bring quality books to young learners.</h2>
+        <p class="closing-cta-text">Request inspection copies for your preschool, school, bookshop or distribution
+          network. Save the books you like and send us your list in one go.</p>
         <div class="closing-btn-group">
-          <a href="#catalogue" class="btn btn-secondary">
-            <span>Explore Complete Catalogue &rarr;</span>
-          </a>
-          <button class="btn btn-outline-white"
-            onclick="window.CarmelApp.openInquiryModal('General Catalogue Inquiry')">
-            <span>Inquire for Institutions</span>
+          <a href="#finder" class="btn btn-secondary"><span>Build a book set</span></a>
+          <button class="btn btn-outline-white" type="button" data-open-inquiry>
+            <span>Enquire for institutions</span>
           </button>
         </div>
       </div>
     </section>
   </main>
 
-  <!-- ==========================================================================
-       Global Footer (Module 3.3)
-       ========================================================================== -->
+  <!-- Footer -->
   <footer class="site-footer">
     <div class="container">
       <div class="footer-top-grid">
-        <!-- Brand Statement -->
         <div class="footer-brand-col">
-          <img src="assets/img/logo.png" alt="Carmel Publications Logo" class="brand-logo-img">
-          <p class="footer-brand-desc">
-            Vibrant, modern, and engaging educational books crafted to foster early literacy, artistic creativity, and
-            numerical reasoning for young minds.
-          </p>
-          <div style="font-size: 0.85rem; color: #64748B;">
-            Mulanthuruthy, District Ernakulam, Keralam 682314
-          </div>
+          <span class="footer-logo-card"><img src="assets/img/logo.png" alt="Carmel Publications"
+              class="brand-logo-img" width="126" height="56"></span>
+          <p class="footer-brand-desc">Vibrant, engaging books that build early literacy, creativity and number sense
+            in young minds.</p>
         </div>
 
-        <!-- Category Links -->
         <div>
-          <h4 class="footer-heading">Categories</h4>
-          <ul class="footer-links-list">
-            <li><span class="footer-link"
-                onclick="window.CarmelApp.setCategory('early-childhood'); document.getElementById('catalogue').scrollIntoView();">Early
-                Childhood & Alphabet</span></li>
-            <li><span class="footer-link"
-                onclick="window.CarmelApp.setCategory('handwriting'); document.getElementById('catalogue').scrollIntoView();">Handwriting
-                & Penmanship</span></li>
-            <li><span class="footer-link"
-                onclick="window.CarmelApp.setCategory('mathematics'); document.getElementById('catalogue').scrollIntoView();">Mathematics
-                & Numbers</span></li>
-            <li><span class="footer-link"
-                onclick="window.CarmelApp.setCategory('hindi-literature'); document.getElementById('catalogue').scrollIntoView();">Hindi
-                Literature</span></li>
-            <li><span class="footer-link"
-                onclick="window.CarmelApp.setCategory('rhymes-poetry'); document.getElementById('catalogue').scrollIntoView();">Rhymes
-                & Balgeet</span></li>
-            <li><span class="footer-link"
-                onclick="window.CarmelApp.setCategory('art-craft'); document.getElementById('catalogue').scrollIntoView();">Art,
-                Craft & Creativity</span></li>
-          </ul>
+          <h3 class="footer-heading">Categories</h3>
+          <ul class="footer-links-list" id="footerCategories"></ul>
         </div>
 
-        <!-- Collections Links -->
         <div>
-          <h4 class="footer-heading">Collections</h4>
-          <ul class="footer-links-list">
-            <li><a href="#collections" class="footer-link">Foundation Series</a></li>
-            <li><a href="#collections" class="footer-link">Visual Dictionary Series</a></li>
-            <li><a href="#collections" class="footer-link">Melody & Verse</a></li>
-            <li><a href="#collections" class="footer-link">Creative Canvas Studio</a></li>
-            <li><a href="#collections" class="footer-link">Pen & Ink Heritage</a></li>
-            <li><a href="#collections" class="footer-link">Bhasha Gyan Series</a></li>
-          </ul>
+          <h3 class="footer-heading">Collections</h3>
+          <ul class="footer-links-list" id="footerCollections"></ul>
         </div>
 
-        <!-- Contact Information -->
         <div>
-          <h4 class="footer-heading">Publisher Office</h4>
-          <div class="footer-contact-info">
-            <div class="contact-row">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
-                <circle cx="12" cy="10" r="3"></circle>
-              </svg>
-              <span>Mulanthuruthy, District Ernakulam, Keralam 682314</span>
-            </div>
-            <div class="contact-row">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path
-                  d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z">
-                </path>
-              </svg>
-              <span>+91 484 2740000</span>
-            </div>
-            <div class="contact-row">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
-                <polyline points="22,6 12,13 2,6"></polyline>
-              </svg>
-              <span>info@carmelpublications.com</span>
-            </div>
-          </div>
+          <h3 class="footer-heading">Contact</h3>
+          <address class="footer-contact-info" id="footerContact"></address>
         </div>
       </div>
 
       <div class="footer-bottom-bar">
-        <div>&copy; 2024-2025 Carmel Publications. All rights reserved. Mulanthuruthy, Ernakulam.</div>
-        <div style="color: #64748B;">Interactive Digital Catalogue Edition 2.0</div>
+        <div>&copy; <span id="footerYear">2026</span> Carmel Publications. All rights reserved.</div>
+        <button class="footer-top-link" type="button" id="footerTopBtn">Back to top &uarr;</button>
       </div>
     </div>
   </footer>
 
-  <!-- ==========================================================================
-       Module C — Quick Book Preview Modal
-       ========================================================================== -->
-  <div class="modal-backdrop" id="previewModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+  <!-- Book preview modal -->
+  <div class="modal-backdrop" id="previewModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle"
+    aria-hidden="true">
     <div class="preview-modal-dialog" id="previewModalDialog">
-      <!-- Close Button -->
-      <button class="modal-close-btn" id="modalCloseBtn" aria-label="Close Book Preview">
+      <button class="modal-close-btn" id="modalCloseBtn" type="button" aria-label="Close book details">
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
-          stroke-linecap="round" stroke-linejoin="round">
+          stroke-linecap="round" aria-hidden="true">
           <line x1="18" y1="6" x2="6" y2="18"></line>
           <line x1="6" y1="6" x2="18" y2="18"></line>
         </svg>
       </button>
 
-      <!-- Prev / Next Navigation Arrows -->
-      <div class="modal-nav-arrows">
-        <button class="modal-nav-btn" id="modalPrevBtn" aria-label="Previous Book" title="Previous Book (Left Arrow)">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-            <polyline points="15 18 9 12 15 6"></polyline>
-          </svg>
-        </button>
-        <button class="modal-nav-btn" id="modalNextBtn" aria-label="Next Book" title="Next Book (Right Arrow)">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-            <polyline points="9 18 15 12 9 6"></polyline>
-          </svg>
-        </button>
-      </div>
-
       <div class="preview-modal-grid">
-        <!-- Visual Column -->
         <div class="modal-visual-column">
-          <div class="modal-cover-stage">
-            <img src="" alt="Book Cover" class="modal-cover-img" id="modalCoverImg" />
+          <div class="modal-cover-stage" id="coverStage" data-mode="front">
+            <img src="" alt="" class="modal-cover-img" id="modalCoverImg" />
+            <div class="book3d-scene" id="book3dScene" aria-label="3D book. Drag to turn it.">
+              <div class="book3d" id="book3d">
+                <div class="b3-face b3-front"></div>
+                <div class="b3-face b3-back"></div>
+                <div class="b3-face b3-spine"></div>
+                <div class="b3-face b3-pages"></div>
+                <div class="b3-face b3-top"></div>
+                <div class="b3-face b3-bottom"></div>
+              </div>
+            </div>
+            <p class="book3d-hint" id="book3dHint">Drag to turn the book</p>
           </div>
 
-          <!-- Cover Mode Toggle (Front vs Full Spread) -->
-          <div class="view-switch-tabs">
-            <button class="view-switch-btn active" id="modalCoverToggleFront">Front Cover</button>
-            <button class="view-switch-btn" id="modalCoverToggleSpread">Full Cover Jacket (Spread)</button>
+          <div class="view-switch-tabs" role="tablist" aria-label="Cover view">
+            <button class="view-switch-btn active" id="modeFront" type="button" role="tab" data-mode="front"
+              aria-selected="true">Front</button>
+            <button class="view-switch-btn" id="modeSpread" type="button" role="tab" data-mode="spread"
+              aria-selected="false">Full jacket</button>
+            <button class="view-switch-btn" id="mode3d" type="button" role="tab" data-mode="3d"
+              aria-selected="false">3D turn</button>
+          </div>
+
+          <div class="modal-pager">
+            <button class="modal-nav-btn" id="modalPrevBtn" type="button" aria-label="Previous book">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                aria-hidden="true">
+                <polyline points="15 18 9 12 15 6"></polyline>
+              </svg>
+            </button>
+            <span class="modal-pager-label" id="modalPagerLabel">1 of 25</span>
+            <button class="modal-nav-btn" id="modalNextBtn" type="button" aria-label="Next book">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                aria-hidden="true">
+                <polyline points="9 18 15 12 9 6"></polyline>
+              </svg>
+            </button>
           </div>
         </div>
 
-        <!-- Details Column -->
         <div class="modal-details-column">
           <div class="modal-header-meta">
-            <span class="badge badge-primary" id="modalCatBadge">Category</span>
-            <span class="badge badge-secondary" id="modalLevelBadge">Level</span>
+            <span class="badge badge-primary" id="modalCatBadge"></span>
+            <span class="badge badge-secondary" id="modalLevelBadge"></span>
           </div>
 
-          <h2 class="modal-book-title" id="modalTitle">Book Title</h2>
-          <div class="modal-book-subtitle" id="modalSubtitle">Book Subtitle</div>
+          <h2 class="modal-book-title" id="modalTitle"></h2>
+          <div class="modal-book-subtitle" id="modalSubtitle"></div>
 
-          <!-- Metadata Spec Grid -->
-          <div class="modal-meta-table">
-            <div class="meta-table-item">
-              <span class="meta-label">Publisher Price</span>
-              <span class="meta-value" id="modalPrice">₹190</span>
+          <dl class="modal-meta-table">
+            <div class="meta-table-item"><dt class="meta-label">Price</dt><dd class="meta-value" id="modalPrice"></dd>
             </div>
-            <div class="meta-table-item">
-              <span class="meta-label">Page Count</span>
-              <span class="meta-value" id="modalPages">64 Pages</span>
+            <div class="meta-table-item"><dt class="meta-label">Pages</dt><dd class="meta-value" id="modalPages"></dd>
             </div>
-            <div class="meta-table-item">
-              <span class="meta-label">ISBN-13</span>
-              <span class="meta-value" id="modalIsbn">978-81-17228-24-1</span>
+            <div class="meta-table-item"><dt class="meta-label">Age</dt><dd class="meta-value" id="modalAge"></dd>
             </div>
-            <div class="meta-table-item">
-              <span class="meta-label">Print Edition</span>
-              <span class="meta-value" id="modalFormat">Full Color Offset</span>
+            <div class="meta-table-item"><dt class="meta-label">ISBN-13</dt><dd class="meta-value" id="modalIsbn"></dd>
             </div>
-          </div>
+          </dl>
 
-          <h4 class="modal-desc-heading">Overview</h4>
-          <p class="modal-book-desc" id="modalDesc">Comprehensive overview of the book's content, pedagogical value, and
-            illustrations.</p>
+          <h3 class="modal-desc-heading">Overview</h3>
+          <p class="modal-book-desc" id="modalDesc"></p>
 
-          <h4 class="modal-desc-heading">Key Learning Outcomes</h4>
+          <h3 class="modal-desc-heading">Learning outcomes</h3>
           <ul class="modal-highlights-list" id="modalHighlightsList"></ul>
 
-          <!-- Action Bar -->
+          <div class="modal-related" id="modalRelated"></div>
+
           <div class="modal-actions-bar">
-            <a href="#" target="_blank" class="btn btn-outline btn-sm" id="modalPdfBtn">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
-                <polyline points="14 2 14 8 20 8"></polyline>
+            <button class="btn btn-outline btn-sm" id="modalSaveBtn" type="button" aria-pressed="false"></button>
+            <button class="btn btn-outline btn-sm" id="modalShareBtn" type="button">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <circle cx="18" cy="5" r="3"></circle>
+                <circle cx="6" cy="12" r="3"></circle>
+                <circle cx="18" cy="19" r="3"></circle>
+                <line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line>
+                <line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line>
               </svg>
-              <span>Download PDF Cover Sheet</span>
-            </a>
-
-            <button class="btn btn-outline btn-sm" id="modalSaveBtn">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path
-                  d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z">
-                </path>
-              </svg>
-              <span>Save to Reading List</span>
+              <span>Share</span>
             </button>
-
-            <button class="btn btn-primary btn-sm" id="modalInquireBtn">
-              <span>Request Specimen Copy</span>
+            <a class="btn btn-outline btn-sm" id="modalDownloadBtn" href="#" download>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                <polyline points="7 10 12 15 17 10"></polyline>
+                <line x1="12" y1="15" x2="12" y2="3"></line>
+              </svg>
+              <span>Download cover</span>
+            </a>
+            <button class="btn btn-primary btn-sm" id="modalInquireBtn" type="button">
+              <span>Request specimen copy</span>
             </button>
           </div>
         </div>
@@ -1020,139 +598,151 @@
     </div>
   </div>
 
-  <!-- ==========================================================================
-       Reading List / Bookmarks Drawer
-       ========================================================================== -->
-  <div class="drawer-backdrop" id="readingListDrawer">
-    <div class="slide-drawer">
+  <!-- Reading list drawer -->
+  <div class="drawer-backdrop" id="readingListDrawer" aria-hidden="true">
+    <aside class="slide-drawer" role="dialog" aria-modal="true" aria-labelledby="drawerTitle">
       <div class="drawer-header">
         <div>
-          <h3 class="drawer-title">My Reading List</h3>
-          <div style="font-size: 0.8rem; color: var(--color-text-light);" id="savedItemsCountLabel">0 Books Selected
-          </div>
+          <h2 class="drawer-title" id="drawerTitle">My reading list</h2>
+          <div class="drawer-sub" id="savedItemsCountLabel">0 books</div>
         </div>
-        <button class="btn-icon" id="readingListCloseBtn" aria-label="Close Drawer">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+        <button class="btn-icon" id="readingListCloseBtn" type="button" aria-label="Close reading list">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+            aria-hidden="true">
             <line x1="18" y1="6" x2="6" y2="18"></line>
             <line x1="6" y1="6" x2="18" y2="18"></line>
           </svg>
         </button>
       </div>
 
-      <div class="drawer-body" id="savedItemsContainer">
-        <!-- Dynamically rendered by app.js -->
-      </div>
+      <div class="drawer-body" id="savedItemsContainer"></div>
 
       <div class="drawer-footer">
-        <div class="drawer-footer-actions">
-          <button class="btn btn-primary" id="inquireSavedBtn">
-            <span>Request Specimen for Saved Titles</span>
-          </button>
-          <button class="btn btn-outline btn-sm" id="clearSavedBtn">
-            <span>Clear Reading List</span>
-          </button>
+        <div class="drawer-total" id="drawerTotal" hidden>
+          <span>Total</span>
+          <strong id="drawerTotalValue">&#8377;0</strong>
         </div>
+        <div class="drawer-share-row" id="drawerShareRow" hidden>
+          <button class="btn btn-outline btn-sm" id="copyListBtn" type="button">Copy list</button>
+          <button class="btn btn-outline btn-sm" id="printListBtn" type="button">Print</button>
+          <button class="btn btn-outline btn-sm" id="shareListBtn" type="button">Share</button>
+        </div>
+        <button class="btn btn-primary" id="inquireSavedBtn" type="button">
+          <span>Request these books</span>
+        </button>
+        <button class="btn-text-danger" id="clearSavedBtn" type="button">Clear list</button>
       </div>
-    </div>
+    </aside>
   </div>
 
-  <!-- ==========================================================================
-       Institutional Specimen & Inspection Request Modal
-       ========================================================================== -->
-  <div class="modal-backdrop" id="inquiryModal">
+  <!-- Inquiry modal -->
+  <div class="modal-backdrop" id="inquiryModal" role="dialog" aria-modal="true" aria-labelledby="inquiryTitle"
+    aria-hidden="true">
     <div class="preview-modal-dialog inquiry-modal-dialog">
-      <button class="modal-close-btn" id="inquiryCloseBtn" aria-label="Close Form">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+      <button class="modal-close-btn" id="inquiryCloseBtn" type="button" aria-label="Close form">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+          aria-hidden="true">
           <line x1="18" y1="6" x2="6" y2="18"></line>
           <line x1="6" y1="6" x2="18" y2="18"></line>
         </svg>
       </button>
 
-      <div style="margin-bottom: 1.5rem;">
-        <span class="badge badge-primary">Institutional Inquiries</span>
-        <h2 style="font-size: 1.8rem; font-weight: 800; color: var(--color-navy); margin-top: 0.5rem;">Request Specimen
-          Copy / Catalogue</h2>
-        <p style="font-size: 0.9rem; color: var(--color-text-muted);">For preschool educators, school principals,
-          curriculum directors, and institutional distributors.</p>
+      <div class="inquiry-head">
+        <span class="badge badge-primary">Institutional enquiries</span>
+        <h2 class="inquiry-title" id="inquiryTitle">Request specimen copies</h2>
+        <p class="inquiry-intro">For schools, preschools, bookshops and distributors. Submitting opens your email
+          app with this request ready to send to us.</p>
       </div>
 
       <form id="inquiryForm">
         <div class="form-group">
-          <label class="form-label">Selected Title(s)</label>
-          <input type="text" class="form-control" id="inquiryBookTitleInput" readonly
-            style="background: var(--color-bg); font-weight: 600;">
+          <label class="form-label" for="inquiryBooks">Books requested</label>
+          <textarea class="form-control" id="inquiryBooks" name="books" rows="2"
+            placeholder="Full catalogue"></textarea>
         </div>
 
-        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+        <div class="form-row">
           <div class="form-group">
-            <label class="form-label">Full Name *</label>
-            <input type="text" class="form-control" required placeholder="Dr. / Prof. / Principal Name">
+            <label class="form-label" for="inqName">Full name *</label>
+            <input type="text" class="form-control" id="inqName" name="name" required autocomplete="name">
           </div>
           <div class="form-group">
-            <label class="form-label">Designation / Role *</label>
-            <input type="text" class="form-control" required placeholder="e.g. Principal / Head Teacher">
+            <label class="form-label" for="inqRole">Role *</label>
+            <input type="text" class="form-control" id="inqRole" name="role" required
+              placeholder="Principal, Teacher, Bookseller...">
           </div>
         </div>
 
-        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+        <div class="form-row">
           <div class="form-group">
-            <label class="form-label">School / Institution Name *</label>
-            <input type="text" class="form-control" required placeholder="e.g. Carmel Public School">
+            <label class="form-label" for="inqOrg">School / organisation *</label>
+            <input type="text" class="form-control" id="inqOrg" name="org" required autocomplete="organization">
           </div>
           <div class="form-group">
-            <label class="form-label">Contact Phone / WhatsApp *</label>
-            <input type="tel" class="form-control" required placeholder="+91 98765 43210">
+            <label class="form-label" for="inqPhone">Phone / WhatsApp *</label>
+            <input type="tel" class="form-control" id="inqPhone" name="phone" required autocomplete="tel"
+              placeholder="+91 98765 43210">
           </div>
         </div>
 
         <div class="form-group">
-          <label class="form-label">Official Email *</label>
-          <input type="email" class="form-control" required placeholder="name@institution.edu.in">
+          <label class="form-label" for="inqEmail">Email *</label>
+          <input type="email" class="form-control" id="inqEmail" name="email" required autocomplete="email">
         </div>
 
         <div class="form-group">
-          <label class="form-label">Delivery Address for Inspection Copies</label>
-          <textarea class="form-control" rows="2"
-            placeholder="Full institutional mailing address with PIN code..."></textarea>
+          <label class="form-label" for="inqAddress">Delivery address</label>
+          <textarea class="form-control" id="inqAddress" name="address" rows="2"
+            placeholder="Address with PIN code"></textarea>
         </div>
 
-        <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 0.5rem;">
-          <span>Submit Specimen Request</span>
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+        <button type="submit" class="btn btn-primary btn-block">
+          <span>Open email with my request</span>
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+            aria-hidden="true">
             <line x1="5" y1="12" x2="19" y2="12"></line>
             <polyline points="12 5 19 12 12 19"></polyline>
           </svg>
         </button>
+        <p class="form-note" id="inquiryNote">Nothing is stored on this website. If your email app does not open,
+          the request is copied so you can paste it into an email to <span id="inquiryEmailText"></span>.</p>
       </form>
     </div>
   </div>
 
-  <!-- ==========================================================================
-       Spotlight Search Modal (Cmd+K)
-       ========================================================================== -->
-  <div class="modal-backdrop" id="spotlightModal">
+  <!-- Quick search -->
+  <div class="modal-backdrop spotlight-backdrop" id="spotlightModal" role="dialog" aria-modal="true"
+    aria-label="Quick search" aria-hidden="true">
     <div class="spotlight-modal-dialog">
       <div class="spotlight-input-wrap">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+          aria-hidden="true">
           <circle cx="11" cy="11" r="8"></circle>
           <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
         </svg>
         <input type="text" class="spotlight-search-field" id="spotlightInput"
-          placeholder="Quick search publications, ISBNs, categories... (ESC to close)" autocomplete="off">
-        <button id="spotlightCloseBtn"
-          style="color: var(--color-text-light); font-size: 1.2rem; cursor: pointer;">&times;</button>
+          placeholder="Search books, subjects or ISBN" autocomplete="off" role="combobox" aria-expanded="true"
+          aria-controls="spotlightResults" aria-label="Quick search">
+        <button class="spotlight-close" id="spotlightCloseBtn" type="button" aria-label="Close search">Esc</button>
       </div>
-
-      <div class="spotlight-results-container" id="spotlightResults">
-        <!-- Rendered by app.js -->
-      </div>
+      <div class="spotlight-results-container" id="spotlightResults" role="listbox"></div>
+      <div class="spotlight-foot"><span>&uarr;&darr; to move</span><span>Enter to open</span></div>
     </div>
   </div>
 
-  <!-- Toast Notification Container -->
-  <div class="toast-container" id="toastContainer"></div>
+  <button class="back-to-top" id="backToTop" type="button" aria-label="Back to top" hidden>
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+      stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <polyline points="18 15 12 9 6 15"></polyline>
+    </svg>
+  </button>
 
-  <!-- Scripts -->
+  <div class="toast-container" id="toastContainer" role="status" aria-live="polite"></div>
+
+  <noscript>
+    <p class="noscript-note">Please enable JavaScript to browse the interactive catalogue.</p>
+  </noscript>
+
   <script src="js/data.js"></script>
   <script src="js/app.js"></script>
 </body>
