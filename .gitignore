@@ -11,3 +11,9 @@ __pycache__/
 Thumbs.db
 .vscode/
 .idea/
+
+# Admin app (Rust build output, password file, CSV backup)
+admin/target/
+admin/.admin_password
+catalog/*.bak
+catalog/*.tmp

@@ -1,0 +1,22 @@
+[Unit]
+Description=Carmel Publications admin
+After=network.target
+
+[Service]
+# Edit User, WorkingDirectory and ExecStart to match your server.
+User=carmel
+WorkingDirectory=/var/www/carmel
+Environment=CATALOG_ROOT=/var/www/carmel
+Environment=ADMIN_BIND=127.0.0.1:8080
+Environment=ADMIN_ALLOWED_HOST=admin.example.com
+Environment=ADMIN_SECURE_COOKIE=1
+# The password is read from /var/www/carmel/admin/.admin_password (chmod 600), or add: Environment=ADMIN_PASSWORD=...
+ExecStart=/var/www/carmel/admin/target/release/carmel-admin
+Restart=on-failure
+NoNewPrivileges=true
+ProtectSystem=full
+ReadWritePaths=/var/www/carmel
+PrivateTmp=true
+
+[Install]
+WantedBy=multi-user.target

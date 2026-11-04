@@ -1,0 +1,23 @@
+# Caddy gets and renews HTTPS certificates automatically.
+# Replace the two domain names, then: sudo cp Caddyfile /etc/caddy/Caddyfile && sudo systemctl reload caddy
+
+# Public website: serves ONLY the public files, never catalog/ or admin/.
+www.example.com {
+	root * /var/www/carmel
+	@public {
+		path / /index.html /css/* /js/* /assets/*
+	}
+	handle @public {
+		file_server
+	}
+	respond 404
+}
+
+# Admin page: HTTPS proxy to the Rust server, which only listens on 127.0.0.1.
+admin.example.com {
+	header {
+		Strict-Transport-Security "max-age=31536000"
+		-Server
+	}
+	reverse_proxy 127.0.0.1:8080
+}

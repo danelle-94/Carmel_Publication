@@ -1,5 +1,42 @@
 # Adding or editing books (no coding needed)
 
+## Easiest way: the admin page
+
+A password-protected page lets you add, edit and delete books with a form and a cover upload.
+It writes `catalog/books.csv` and rebuilds the website catalog for you.
+
+1. In a terminal, from the project folder:
+
+   ```bash
+   cd admin
+   cargo run --release
+   ```
+
+2. Open <http://127.0.0.1:8080/admin> and sign in. The password is the single line in `admin/.admin_password`
+   (or set the `ADMIN_PASSWORD` environment variable). **Change the default password.**
+3. Click **+ Add book**, fill the form, choose the front cover and press **Save book**.
+   Edit and Delete are in the book list. A backup of the previous file is kept as `catalog/books.csv.bak`.
+
+The admin runs only on your computer (127.0.0.1) and is never part of the public website.
+Use `ADMIN_BIND=127.0.0.1:8090` to change the port. It needs Rust (`cargo`) and Python 3 with Pillow.
+
+### Putting the admin online (your own server, HTTPS)
+
+Only do this if the website is served from the same server, because the admin edits that server's files.
+
+1. Copy the project to the server (e.g. `/var/www/carmel`), install Rust, Python 3 + Pillow and [Caddy](https://caddyserver.com).
+2. `cd admin && cargo build --release`, and put a **long, unique password** in `admin/.admin_password` (`chmod 600`).
+3. Install `admin/deploy/carmel-admin.service` (set your paths and `ADMIN_ALLOWED_HOST=admin.yourdomain.com`):
+   `sudo cp admin/deploy/carmel-admin.service /etc/systemd/system/ && sudo systemctl enable --now carmel-admin`.
+4. Use `admin/deploy/Caddyfile` (set your domains). Point the DNS of `admin.yourdomain.com` at the server.
+5. Open `https://admin.yourdomain.com/admin`.
+
+The admin keeps listening on 127.0.0.1 only; Caddy is the single public entry point. `ADMIN_SECURE_COOKIE=1`
+makes the session cookie HTTPS-only, and `ADMIN_ALLOWED_HOST` must match your admin domain. After five wrong
+passwords sign-in is paused for a minute.
+
+## Or edit the spreadsheet by hand
+
 All books live in one spreadsheet: [`books.csv`](books.csv). Open it in Excel, LibreOffice or Google Sheets.
 
 ## Steps
