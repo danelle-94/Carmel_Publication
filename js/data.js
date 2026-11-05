@@ -13,7 +13,7 @@ window.CATALOG_DATA = {
     "head_office": "33A, First Floor, Tower Enclave Phase 1, Wadala Chowk, Nakodar Road, Jalandhar, Punjab 144003",
     "branch_office": "Mulanthuruthy, District Ernakulam, Kerala 682314",
     "stats": {
-      "books_count": 57,
+      "books_count": 59,
       "categories_count": 9,
       "collections_count": 12
     }
@@ -78,9 +78,9 @@ window.CATALOG_DATA = {
       "id": "art-craft",
       "name": "Art, Craft & Creativity",
       "tagline": "Drawing, Colouring & Craft",
-      "description": "Six landscape Fun with Art and Craft books (A, B, C, 1, 2 and 3) with drawing, colouring and craft activities.",
+      "description": "Eight landscape Fun with Art and Craft books (A, B, C, 1, 2, 3, 4 and 5) with drawing, colouring and craft activities.",
       "icon": "palette",
-      "count": 6,
+      "count": 8,
       "accent": "#10B981",
       "bg_gradient": "linear-gradient(135deg, rgba(16, 185, 129, 0.08), rgba(16, 185, 129, 0.02))",
       "featured_book": "art-craft-a"
@@ -145,8 +145,8 @@ window.CATALOG_DATA = {
       "id": "creative-canvas",
       "name": "Creative Canvas Studio",
       "tagline": "Fun with Art and Craft",
-      "description": "A six-book art and craft series (Books A, B, C and Parts 1, 2, 3) for young creators.",
-      "badge": "6-Part Studio"
+      "description": "An eight-book art and craft series (Books A, B, C and Parts 1 to 5) for young creators.",
+      "badge": "8-Part Studio"
     },
     {
       "id": "pen-heritage",
@@ -1385,6 +1385,62 @@ window.CATALOG_DATA = {
       "cover_front_webp": "assets/covers/front/art-craft-3.webp",
       "cover_spread_jpg": "assets/covers/spread/art-craft-3.jpg",
       "cover_spread_webp": "assets/covers/spread/art-craft-3.webp",
+      "aspect_type": "landscape"
+    },
+    {
+      "id": "art-craft-4",
+      "title": "Fun with Art and Craft – Part 4",
+      "subtitle": "Drawing, Colouring & Craft",
+      "category": "Art, Craft & Creativity",
+      "category_slug": "art-craft",
+      "level": "Grade 4",
+      "age_group": "9 - 10 Years",
+      "collection": "Creative Canvas Studio",
+      "collection_slug": "creative-canvas",
+      "isbn": "978-93-83707-00-3",
+      "year": "",
+      "format": "",
+      "pages": 0,
+      "price": "₹160",
+      "featured": false,
+      "rating": 4.8,
+      "description": "Part 4 of the Fun with Art and Craft series, a landscape activity book that brings together drawing, colouring and craft ideas.",
+      "highlights": [
+        "Drawing, colouring and craft activities",
+        "Landscape format"
+      ],
+      "cover_front_jpg": "assets/covers/front/art-craft-4.jpg",
+      "cover_front_webp": "assets/covers/front/art-craft-4.webp",
+      "cover_spread_jpg": "assets/covers/spread/art-craft-4.jpg",
+      "cover_spread_webp": "assets/covers/spread/art-craft-4.webp",
+      "aspect_type": "landscape"
+    },
+    {
+      "id": "art-craft-5",
+      "title": "Fun with Art and Craft – Part 5",
+      "subtitle": "Drawing, Colouring & Craft",
+      "category": "Art, Craft & Creativity",
+      "category_slug": "art-craft",
+      "level": "Grade 5",
+      "age_group": "10 - 11 Years",
+      "collection": "Creative Canvas Studio",
+      "collection_slug": "creative-canvas",
+      "isbn": "978-93-83707-04-1",
+      "year": "",
+      "format": "",
+      "pages": 0,
+      "price": "₹160",
+      "featured": false,
+      "rating": 4.8,
+      "description": "Part 5 of the Fun with Art and Craft series, a landscape activity book that brings together drawing, colouring and craft ideas.",
+      "highlights": [
+        "Drawing, colouring and craft activities",
+        "Landscape format"
+      ],
+      "cover_front_jpg": "assets/covers/front/art-craft-5.jpg",
+      "cover_front_webp": "assets/covers/front/art-craft-5.webp",
+      "cover_spread_jpg": "assets/covers/spread/art-craft-5.jpg",
+      "cover_spread_webp": "assets/covers/spread/art-craft-5.webp",
       "aspect_type": "landscape"
     },
     {
